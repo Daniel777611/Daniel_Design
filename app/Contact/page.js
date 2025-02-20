@@ -104,7 +104,7 @@ export default function Contact() {
                             className={styles.playButton}
                             onClick={handlePlayPause}
                         >
-                            <Image  src="/icon/videoPlay2.png" alt="Play Video" className={styles.playIcon} width={40} height={40}/>
+                            <Image  src="/icon/videoPlay2.png" alt="Play Video" className={styles.playIcon} width={1000} height={1000}/>
                         </button>
                     )}
                 </div>

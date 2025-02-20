@@ -108,7 +108,7 @@ export default function HomePage() {
                  className={styles.fullscreenButton}
                  onClick={playFullScreen}
                 >
-                 <Image src="/icon/videoPlay2.png" alt="Play Video" className={styles.playIcon} width={40} height={40} />
+                 <Image src="/icon/videoPlay2.png" alt="Play Video" className={styles.playIcon} width={1000} height={1000} />
                  </button>
             </section>
 
@@ -117,7 +117,7 @@ export default function HomePage() {
                 
             <Link href="/projects/project1">
                 <div className={styles.bestProjectContainer}>
-                <Image src="/projects/project1/1.jpg" alt="Best Project Cover" className={styles.bestProjectImage} width={800} height={600}/>
+                <Image src="/projects/project1/1.jpg" alt="Best Project Cover" className={styles.bestProjectImage} width={1920} height={1080}/>
                 </div>
                 </Link>
                 

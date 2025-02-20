@@ -77,7 +77,7 @@ export default function Project1() {
                     Your browser does not support the video tag.
                 </video>
                 <button className={styles.fullscreenButton} onClick={playFullScreen}>
-                    <Image src="/icon/videoPlay2.png" alt="Play Video" width={40} height={40}/>
+                    <Image src="/icon/videoPlay2.png" alt="Play Video" width={1000} height={1000}/>
                 </button>
             </section>
 
@@ -85,10 +85,34 @@ export default function Project1() {
             <section className={styles.imageGallerySection}>
                 {images.map((image, index) => (
                     <div key={index} className={styles.imageContainer} onClick={() => setSelectedImage(image)}>
-                        <Image src={image} alt={`Project Image ${index + 1}`} width={800} height={600} className={styles.projectImage} />
+                        <Image src={image} alt={`Project Image ${index + 1}`} width={2560} height={1440} className={styles.projectImage} />
                     </div>
                 ))}
             </section>
+
+
+
+             {/* ProjectGallery Section */}
+             <section id="project-gallery" className={styles.gallerySection}>
+                <div className={styles.galleryContainer}>
+                    <div className={styles.galleryGrid}>
+                        <Link href="/projects/project1">
+                            <div className={styles.galleryItem}>
+                                <Image src="/projects/project1/1.jpg" alt="Project 1 Cover" width={800} height={600} className={styles.galleryImage} />
+                            </div>
+                        </Link>
+
+                        <Link href="/projects/project2">
+                            <div className={styles.galleryItem}>
+                                <Image src="/projects/project2/1.jpg" alt="Project 2 Cover" width={800} height={600} className={styles.galleryImage} />
+                            </div>
+                        </Link>
+                    </div>
+                </div>
+            </section>
+
+           
+
 
             {/* Full-Screen Modal */}
             {selectedImage && (
@@ -97,7 +121,7 @@ export default function Project1() {
                         setSelectedImage(null);
                     }
                 }}>
-                    <Image src={selectedImage} alt="Full Screen" width={1200} height={800} className={styles.fullScreenImage} />
+                    <Image src={selectedImage} alt="Full Screen" width={2560} height={1440} className={styles.fullScreenImage} />
                 </div>
             )}
         </div>

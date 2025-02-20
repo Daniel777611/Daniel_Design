@@ -51,7 +51,7 @@ export default function Project2() {
             <section className={styles.imageGallerySection}>
                 {images.map((image, index) => (
                     <div key={index} className={styles.imageContainer} onClick={() => openModal(image)}>
-                        <Image src={image} alt={`Project Image ${index + 1}`} width={800} height={600} className={styles.projectImage} />
+                        <Image src={image} alt={`Project Image ${index + 1}`} width={2560} height={1440} className={styles.projectImage} />
                     </div>
                 ))}
             </section>
@@ -63,7 +63,7 @@ export default function Project2() {
                         closeModal();
                     }
                 }}>
-                    <Image src={selectedImage} alt="Full Screen" width={1200} height={800} className={styles.fullScreenImage} />
+                    <Image src={selectedImage} alt="Full Screen" width={2560} height={1440} className={styles.fullScreenImage} />
                 </div>
             )}
 
