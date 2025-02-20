@@ -3,6 +3,7 @@
 import styles from './project3.module.css';
 import Link from 'next/link';
 import { useRef, useState } from 'react';
+import Image from "next/image";
 
 export default function Project3() {
     const videoRef = useRef(null);
@@ -17,10 +18,9 @@ export default function Project3() {
         "/projects/project3/7.jpg",
         "/projects/project3/8.jpg",
         "/projects/project3/9.jpg",
-        ]; // Array of image paths
+    ];
 
-        const [selectedImage, setSelectedImage] = useState(null); // Modal state
-
+    const [selectedImage, setSelectedImage] = useState(null);
 
     const playFullScreen = () => {
         const video = videoRef.current;
@@ -39,22 +39,20 @@ export default function Project3() {
             video.play();
 
             document.addEventListener('fullscreenchange', handleExitFullScreen);
+            document.addEventListener('webkitfullscreenchange', handleExitFullScreen);
+            document.addEventListener('msfullscreenchange', handleExitFullScreen);
         }
     };
 
     const handleExitFullScreen = () => {
         const video = videoRef.current;
-        if (!document.fullscreenElement && video) {
+        if (!document.fullscreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement && video) {
             video.muted = true;
         }
     };
 
-
-    const openModal = (image) => {setSelectedImage(image);};
-
-    const closeModal = () => {setSelectedImage(null);};
-
-
+    const openModal = (image) => setSelectedImage(image);
+    const closeModal = () => setSelectedImage(null);
 
     return (
         <div>
@@ -66,7 +64,7 @@ export default function Project3() {
 
                 <nav>
                     <ul className={styles.navList}>
-                        <li><a href="/#project-gallery">Project</a></li>
+                        <li><Link href="/#project-gallery">Project</Link></li>
                         <li><Link href="/contact">Contact</Link></li>
                     </ul>
                 </nav>
@@ -76,95 +74,70 @@ export default function Project3() {
             <section className={styles.videoSection}>
                 <video
                     ref={videoRef}
-                    id="project1Video"
+                    id="project3Video"
                     autoPlay
                     loop
                     muted
                     playsInline
                     className={styles.video}
                 >
-                    <source src="/videos/Illuminated Distance.mp4" type="video/mp4" />
+                    <source src="https://pub-4d02e3e2fa9d453e960151fde48d51ff.r2.dev/videos/Illuminated_Distance.mp4" type="video/mp4" />
                     Your browser does not support the video tag.
                 </video>
                 <button
                  className={styles.fullscreenButton}
                  onClick={playFullScreen}
                 >
-                 <img src="/icon/videoPlay2.png" alt="Play Video" className={styles.playIcon} />
+                 <Image src="/icon/videoPlay2.png" alt="Play Video" className={styles.playIcon} width={40} height={40} />
                  </button>
-
             </section>
 
-
-             {/* Image Gallery Section */}
-             <section className={styles.imageGallerySection}>
+            {/* Image Gallery Section */}
+            <section className={styles.imageGallerySection}>
                 {images.map((image, index) => (
                     <div key={index} className={styles.imageContainer} onClick={() => openModal(image)}>
-                        <img src={image} alt={`Project Image ${index + 1}`} className={styles.projectImage} />
+                        <Image src={image} alt={`Project Image ${index + 1}`} width={1280} height={720} className={styles.projectImage} />
                     </div>
                 ))}
             </section>
 
-
-             {/* Full-Screen Modal */}
-             {selectedImage && (
-                <div className={styles.modal} onClick={closeModal}>
-                    <img
-                        src={selectedImage}
-                        alt="Full Screen"
-                        className={styles.fullScreenImage}
-                    />
+            {/* Full-Screen Modal */}
+            {selectedImage && (
+                <div className={styles.modal} onClick={(e) => {
+                    if (e.target.classList.contains(styles.modal)) {
+                        closeModal();
+                    }
+                }}>
+                    <Image src={selectedImage} alt="Full Screen" width={1200} height={800} className={styles.fullScreenImage} />
                 </div>
             )}
 
-
-
-             {/* ProjectGallery Section */}
-             <section id="project-gallery" className={styles.gallerySection}>
+            {/* ProjectGallery Section */}
+            <section id="project-gallery" className={styles.gallerySection}>
                 <div className={styles.galleryContainer}>
-                        {/*<h2 className={styles.galleryTitle}>My Projects</h2>*/}
-                        <div className={styles.galleryGrid}>
+                    <div className={styles.galleryGrid}>
+                        <Link href="/projects/project1">
+                            <div className={styles.galleryItem}>
+                                <Image src="/projects/project1/1.jpg" alt="Project 1 Cover" width={800} height={600} className={styles.galleryImage} />
+                            </div>
+                        </Link>
 
-                            <Link href="/projects/project1">
-                                <div className={styles.galleryItem}>
-                                    <img src="/projects\project1\1.jpg" alt="Project 1 Cover" className={styles.galleryImage} />
-                                    {/*<h3 className={styles.galleryItemTitle}>Project 1</h3>*/}
-                                </div>
-                            </Link>
-
-                            <Link href="/projects/project2">
-                                <div className={styles.galleryItem}>
-                                    <img src="/projects\project2\1.jpg" alt="Project 2 Cover" className={styles.galleryImage} />
-                                     {/*<h3 className={styles.galleryItemTitle}>Project 2</h3>*/}
-                                </div>
-                            </Link>
-
-
-                        </div>
+                        <Link href="/projects/project2">
+                            <div className={styles.galleryItem}>
+                                <Image src="/projects/project2/1.jpg" alt="Project 2 Cover" width={800} height={600} className={styles.galleryImage} />
+                            </div>
+                        </Link>
+                    </div>
                 </div>
             </section>
 
-            <div className={styles.sectionSeparator}></div>
-
-        <section id="comeBack" className={styles.comeBack}>
-            
-            <div >
-            <Link href="/">
-                <h1 className={styles.comeBackTitle}>DANIEL DESIGN</h1>
-            </Link>
-            </div>
-        </section>
-
-            {/* Footer */}
-        <footer className={styles.footer}>
-            
-            <div className={styles.footerCenter}>
-                <Link href="/contact">
-                    <button className={styles.contactButton}>Contact</button>
-                </Link>
-            </div>
-        </footer>
-
+            <footer className={styles.footer}>
+                <div className={styles.footerCenter}>
+                    <Link href="/contact">
+                        <button className={styles.contactButton}>Contact</button>
+                    </Link>
+                </div>
+            </footer>
         </div>
     );
 }

@@ -3,22 +3,22 @@
 import styles from './contact.module.css';
 import Link from 'next/link';
 import { useRef, useState } from 'react';
+import Image from "next/image";
 
 export default function Contact() {
    
     const [expandedSections, setExpandedSections] = useState({});
-    const [skillsExpanded, setSkillsExpanded] = useState(false);
-
     const [expandedWorkSections, setExpandedWorkSections] = useState({});
     const [expandedProjectSections, setExpandedProjectSections] = useState({});
+    const videoRef = useRef(null);
+    const [isPlaying, setIsPlaying] = useState(false);
+    
    
+    
         
-        
-    const [expandedSkills, setExpandedSkills] = useState(false);
+    
 
-    const toggleSkills = () => {
-        setExpandedSkills(!expandedSkills);
-    };
+    
 
 
     const toggleWorkSection = (section) => {
@@ -49,21 +49,6 @@ export default function Contact() {
     }
 
 
-    const removeElement = (element) => {
-        if (element && element.parentNode) {
-            element.parentNode.removeChild(element);
-        }
-    };
-       
-
-   
-    
-
-
-    
-
-    const videoRef = useRef(null);
-    const [isPlaying, setIsPlaying] = useState(false);
 
     const handlePlayPause = () => {
         const video = videoRef.current;
@@ -78,18 +63,7 @@ export default function Contact() {
         }
     };
 
-    const toggleFullScreen = () => {
-        const video = videoRef.current;
-        if (video) {
-            if (video.requestFullscreen) {
-                video.requestFullscreen();
-            } else if (video.webkitRequestFullscreen) {
-                video.webkitRequestFullscreen(); // Safari
-            } else if (video.msRequestFullscreen) {
-                video.msRequestFullscreen(); // IE/Edge
-            }
-        }
-    };
+    
 
     const handleVideoEnd = () => {
         setIsPlaying(false); // Show play button again after video ends
@@ -104,7 +78,7 @@ export default function Contact() {
                 </Link>
                 <nav>
                     <ul className={styles.navList}>
-                        <li><a href="#project-gallery">Project</a></li>
+                        <li><Link href="#project-gallery">Project</Link></li>
                         <li><Link href="/contact">Contact</Link></li>
                     </ul>
                 </nav>
@@ -122,7 +96,7 @@ export default function Contact() {
                         onPause={() => setIsPlaying(false)}
                         onPlay={() => setIsPlaying(true)}
                     >
-                        <source src="/videos/Daniel Wang-Assihnment B-Part 2-ITGM-708-01 500.mp4" type="video/mp4" />
+                        <source src="https://pub-4d02e3e2fa9d453e960151fde48d51ff.r2.dev/videos/Daniel_Design_De.mp4" type="video/mp4" />
                         Your browser does not support the video tag.
                     </video>
                     {!isPlaying && (
@@ -130,7 +104,7 @@ export default function Contact() {
                             className={styles.playButton}
                             onClick={handlePlayPause}
                         >
-                            <img src="/icon/videoPlay2.png" alt="Play Video" className={styles.playIcon} />
+                            <Image  src="/icon/videoPlay2.png" alt="Play Video" className={styles.playIcon} width={40} height={40}/>
                         </button>
                     )}
                 </div>
@@ -193,10 +167,10 @@ export default function Contact() {
                                     className={styles.experienceTitle}>
                                     <span>{item.title}</span>
                                     <span className={styles.date}>{item.date}</span>
-                                    <img
+                                    <Image
                                         src={expandedWorkSections[`work-${index}`] ? "/icon/Folde.png" : "/icon/Unfold.png"}
                                         alt="Toggle"
-                                        className={styles.toggleIcon}
+                                        className={styles.toggleIcon} width={800} height={600}
                                     />
                                 </h3>
                                 {expandedWorkSections[`work-${index}`] && (
@@ -242,10 +216,10 @@ export default function Contact() {
                                 className={styles.experienceTitle}>
                                 <span>{item.title}</span>
                                 <span className={styles.date}>{item.date}</span>
-                                <img
+                                <Image
                                     src={expandedProjectSections[`project-${index}`] ? "/icon/Folde.png" : "/icon/Unfold.png"}
                                     alt="Toggle"
-                                    className={styles.toggleIcon}
+                                    className={styles.toggleIcon} width={800} height={600}
                                 />
                             </h3>
                             {expandedProjectSections[`project-${index}`] && (
@@ -274,9 +248,9 @@ export default function Contact() {
 >                          
                         Skills {" "}
                         
-                        <img src={ expandedSections.skills ? "/icon/Folde.png": "/icon/Unfold.png"}
+                        <Image src={ expandedSections.skills ? "/icon/Folde.png": "/icon/Unfold.png"}
                         alt="Toggle Icon"
-                        className={styles.skillsToggleIcon}/>
+                        className={styles.skillsToggleIcon} width={800} height={600}/>
                        
                     </h3>
                     <div className={styles.skillsSeparatorTop}></div> {/* Adds bottom line when expanded */}

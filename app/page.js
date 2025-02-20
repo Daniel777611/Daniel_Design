@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import styles from '../styles/home.module.css';
 import { useRef } from 'react';
+import Image from 'next/image';
 
 
 
@@ -82,7 +83,7 @@ export default function HomePage() {
                  </Link>
                 <nav>
                     <ul className={styles.navList}>
-                        <li><a href="#project-gallery">Project</a></li>
+                        <li><Link href="/#project-gallery">Project</Link></li>
                         <li><Link href="/Contact">Contact</Link></li>
                     </ul>
                 </nav>
@@ -100,14 +101,14 @@ export default function HomePage() {
                     className={styles.video}
                     onEnded={handleVideoEnd}
                 >
-                    <source src="/videos/Daniel Design video.mp4" type="video/mp4" />
+                    <source src="https://pub-4d02e3e2fa9d453e960151fde48d51ff.r2.dev/videos/Daniel_Design_Video.mp4" type="video/mp4" />
                     Your browser does not support the video tag.
                 </video>
                 <button
                  className={styles.fullscreenButton}
                  onClick={playFullScreen}
                 >
-                 <img src="/icon/videoPlay2.png" alt="Play Video" className={styles.playIcon} />
+                 <Image src="/icon/videoPlay2.png" alt="Play Video" className={styles.playIcon} width={40} height={40} />
                  </button>
             </section>
 
@@ -116,7 +117,7 @@ export default function HomePage() {
                 
             <Link href="/projects/project1">
                 <div className={styles.bestProjectContainer}>
-                <img src="/projects\project1\1.jpg" alt="Best Project Cover" className={styles.bestProjectImage}/>
+                <Image src="/projects/project1/1.jpg" alt="Best Project Cover" className={styles.bestProjectImage} width={800} height={600}/>
                 </div>
                 </Link>
                 
@@ -132,21 +133,21 @@ export default function HomePage() {
 
                             <Link href="/projects/project1">
                                 <div className={styles.galleryItem}>
-                                    <img src="/projects\project1\1.jpg" alt="Project 1 Cover" className={styles.galleryImage} />
+                                    <Image src="/projects/project1/1.jpg" alt="Project 1 Cover" className={styles.galleryImage} width={800} height={600} />
                                     {/*<h3 className={styles.galleryItemTitle}>Project 1</h3>*/}
                                 </div>
                             </Link>
 
                             <Link href="/projects/project2">
                                 <div className={styles.galleryItem}>
-                                    <img src="projects\project2\1.jpg" alt="Project 2 Cover" className={styles.galleryImage} />
+                                    <Image src="/projects/project2/1.jpg" alt="Project 2 Cover" className={styles.galleryImage} width={800} height={600}/>
                                      {/*<h3 className={styles.galleryItemTitle}>Project 2</h3>*/}
                                 </div>
                             </Link>
 
                             <Link href="/projects/project3">
                                 <div className={styles.galleryItem}>
-                                    <img src="/projects\project3\1.jpg" alt="Project 3 Cover" className={styles.galleryImage} />
+                                    <Image src="/projects/project3/1.jpg" alt="Project 3 Cover" className={styles.galleryImage} width={800} height={600} />
                                     {/*<h3 className={styles.galleryItemTitle}>Project 3</h3>*/}
                                 </div>
                             </Link>
