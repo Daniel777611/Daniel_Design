@@ -1,0 +1,305 @@
+/* styles/home.module.css */
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #ffffff;
+    color: rgb(36, 36, 36);
+    padding: 1rem;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+    font-family: 'Noto Sans', Arial, sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    margin: 0px;
+    margin-left: 17px;
+    color: rgb(36, 36, 36);
+    cursor: pointer; /* Indicates the title is clickable */
+    transition: color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.title:hover {
+    opacity: 0.7; /* Semi-transparent effect on hover */
+}
+
+
+
+
+.navList {
+    font-family: 'Noto Sans', Arial, sans-serif;
+    list-style: none;
+    font-weight: 500;
+    font-size: 14px;
+    display: flex;
+    gap: 20px;
+    padding: 0;
+    margin: 0;
+    color: rgb(36, 36, 36);
+}
+
+.navList :hover{
+
+    opacity: 0.7;
+}
+
+
+
+.navList li {
+    margin-right: 10px; /* Adds space after each item */
+}
+
+.navList li:last-child {
+    margin-right: 40px; /* Ensures no extra margin after the last item */
+}
+
+.navList li a {
+    text-decoration: none;
+    color: rgb(36, 36, 36);
+    transition: opacity 0.3s ease
+    
+}
+
+.navList li:hover > a {
+    opacity: 0.7; /* Semi-transparent effect on hover */
+}
+
+/* Dropdown Menu */
+.navList li.dropdown {
+    position: relative; /* Ensure dropdown aligns correctly */
+}
+
+
+/* Dropdown Menu Styling */
+.dropdownList {
+    display: none; /* Initially hide the dropdown */
+    position: absolute; /* Position relative to parent */
+    top: 100%; /* Place dropdown below the parent item */
+    left: 0;
+    background-color: #ffffff;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-radius: 4px;
+    z-index: 1000; /* Ensure it's above other elements */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    align-items: center; /* Vertically center items */
+    justify-content: space-around; /* Distribute items horizontally */
+}
+
+.dropdownList li {
+    padding: 0.5rem 1rem;
+}
+
+.dropdownList li a {
+    color: rgb(49, 49, 49);
+}
+
+.dropdownList li a:hover {
+    background-color: #c5c5c5;
+}
+
+/* Show Dropdown on Hover */
+.navList .dropdown:hover .dropdownList {
+    display: block;
+}
+
+/* Video Section */
+.videoSection {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    
+}
+
+.fullscreenButton {
+    position: absolute;
+    bottom: 50%; /* Adjust position as needed */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px; /* Width of the circle */
+    height: 100px; /* Height of the circle */
+    border: none; /* Thin white border for the circle */
+    background-color: transparent; /* Transparent background */
+    cursor: pointer;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.playIcon {
+    width: 100%; /* 图标宽度与按钮一致 */
+    height: 100%; /* 图标高度与按钮一致 */
+    object-fit: contain; /* 确保图标按照比例缩放 */
+}
+
+/* Hover effect for the button */
+.fullscreenButton:hover .playIcon {
+    opacity: 0.8; /* 悬停时使图标稍微变暗 */
+}
+
+
+
+/* Best Project Section Styling */
+.bestProjectSection {
+    background-color: #ffffff; /* Light gray background */
+    padding: 3rem 1rem; /* Add spacing around the section */
+}
+
+.bestProjectContainer {
+    max-width: 1600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 2rem;
+}
+
+.bestProjectImage {
+    width:100%;
+    max-width: 800px; /* Limit the width for large screens */
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.bestProjectImage:hover {
+    transform: translateY(-5px); /* Lift on hover */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    opacity: 0.8;
+}
+
+
+
+
+
+/* Gallery Section Styling */
+.gallerySection {
+    background-color: #ffffff; /* Light background for the gallery */
+    padding: 2rem 1rem;
+}
+
+.galleryContainer {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.galleryTitle {
+    font-size: 24px;
+    font-weight: 600;
+    color: #242424;
+    margin-bottom: 2rem;
+}
+
+.galleryGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+    gap: 0rem; /* Space between items */
+    justify-content: center;
+}
+
+.galleryItem {
+    position: relative;
+    background-color: white;
+    border-radius: 0px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+}
+
+.galleryItem:hover {
+    transform: translateY(-5px); /* Lift on hover */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    opacity: 0.8;
+}
+
+.galleryImage {
+    width: 100%;
+    height: auto;
+    object-fit: cover; /* Maintain aspect ratio, fill space */
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.galleryItemTitle {
+    font-size: 18px;
+    font-weight: 500;
+    color: #242424;
+    padding: 1rem;
+}
+
+.comeBack {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    
+}
+
+.comeBackTitle {
+    font-family: 'Noto Sans', Arial, sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    margin: 0px;
+    margin-left: 0;
+    align-items: center;
+    color: rgb(36, 36, 36);
+    cursor: pointer; /* Indicates the title is clickable */
+    transition: color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.comeBackTitle:hover {
+    opacity: 0.7; /* Semi-transparent effect on hover */
+}
+
+.sectionSeparator {
+    border-top: 1px solid #6e6e6e; /* Set the top border to a 1px solid line with a gray color */
+    width: 85%; /* Set the width of the separator to 85% of its parent container */
+    margin: -5px auto; /* Apply negative margin to the top and bottom, and set left and right margins to auto for horizontal centering */
+    padding-bottom: 5px; /* Optional: Adds padding below the border line */
+}
+
+
+
+
+.footer {
+    text-align: center;
+    padding: 2rem;
+    background-color: #d3d3d3;
+    color: white;
+}
+
+.contactButton {
+    width: 150px; /* Set the desired width */
+    height: 50px; /* Set the desired height */
+    background-color: #ffffff;
+    color: rgb(61, 61, 61);
+    border: none;
+    padding: 10px 20px; /* Adjust inner spacing */
+    font-size: 16px;
+    font-weight: 600;
+    font-family: 'Noto Sans', Arial, sans-serif;
+    border-radius: 8px;
+    cursor: pointer;
+    display: inline-block; /* Ensure it behaves like a block for sizing */
+}
+
+.contactButton:hover {
+    opacity: 0.7;
+}

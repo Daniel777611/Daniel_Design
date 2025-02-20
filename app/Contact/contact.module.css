@@ -1,0 +1,509 @@
+/* styles/home.module.css */
+
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #ffffff;
+    color: rgb(36, 36, 36);
+    padding: 1rem;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+    font-family: 'Noto Sans', Arial, sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    margin: 0px;
+    margin-left: 17px;
+    color: rgb(36, 36, 36);
+    cursor: pointer; /* Indicates the title is clickable */
+    transition: color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.title:hover {
+    opacity: 0.7; /* Semi-transparent effect on hover */
+}
+
+
+
+
+.navList {
+    font-family: 'Noto Sans', Arial, sans-serif;
+    list-style: none;
+    font-weight: 500;
+    font-size: 14px;
+    display: flex;
+    gap: 20px;
+    padding: 0;
+    margin: 0;
+    color: rgb(36, 36, 36);
+}
+
+.navList :hover{
+
+    opacity: 0.7;
+}
+
+
+
+
+/* Video Section */
+.videoSection {
+    padding: 2rem 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.videoContainer {
+    position: relative;
+    width: 85%; /* 控制播放器宽度 */
+    max-width: 1200px; /* 设置最大宽度 */
+    margin: 0 auto; /* 居中对齐 */
+    background-color: white; /* 播放器背景白色 */
+    border-radius: 0px; /* 圆角边框 */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 可选：阴影效果 */
+    padding: 0; /* 确保没有内边距 */
+    overflow: hidden; /* 确保内容不会溢出 */
+    height: 0;
+    padding-bottom: 36%; /* 16:9 视频比例 (宽高比) */
+}
+
+.video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 确保视频完全覆盖容器 */
+    background-color: white; /* 确保背景为白色 */
+}
+
+.playButton {
+    position: absolute;
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Offset by half the size to truly center */
+    width: 100px; /* Width of the circle */
+    height: 100px; /* Height of the circle */
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.playIcon {
+    width: 60%; /* 图标宽度与按钮一致 */
+    height: auto; /* 图标高度与按钮一致 */
+    object-fit: contain; /* 确保图标按照比例缩放 */
+}
+
+/* Hover effect for the button */
+.playButton:hover .playIcon {
+    opacity: 0.8; /* 悬停时使图标稍微变暗 */
+}
+
+
+/* Middle Section */
+
+
+/* Wrapper for centering the entire resume */
+.resumeWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Full viewport height */
+    padding: 2rem; /* Add padding for some breathing space */
+    box-sizing: border-box; /* Ensure padding is included in total dimensions */
+    background-color: #ffffff; /* Add background color if needed */
+    border-radius: 8px; /* Optional: Rounded corners */
+}
+
+.middleSection {
+    width: 85%;
+    max-width: 1600px; /* Optional: Limit maximum width */
+    display: flex;
+    gap: 2rem;
+    flex-direction: row;
+    border-top: 1px solid #707070;
+    border-bottom: 1px solid #707070;
+    padding: 2rem 0;
+    
+}
+
+.leftColumn {
+    width: 33.33%;
+    margin: 0px;
+    flex: 1; /* Left column takes 1/4 of the space */
+    padding-right: 2rem;
+    border-right: 0.7px solid #b3b3b3;
+    color: #333;
+    padding-right: 20px;
+}
+
+.rightColumn {
+    width: 66.67%;
+    flex: 3; /* Right column takes 3/4 of the space */
+    padding-left: 10rem;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.separator1 {
+    width: 120px;
+    border-top: 0.5px solid #919191;
+    margin: 0 10px; /* Centers the line */
+    /*margin-bottom: 5px; /* Optional: Adds spacing below the line */
+    padding-bottom: 5px; /* Optional: Adds spacing inside the item */
+    
+}
+
+
+.separator2 {
+    border-top: 0.5px solid #919191;
+    margin: 30px 10px; /* Adjust spacing around the section */
+    margin-bottom: 50px; /* Optional: Adds spacing below the line */
+    padding-bottom: 10px; /* Optional: Adds spacing inside the item */
+}
+
+.separator3 {
+    border-top: 0px solid #ffffff;
+    margin: 50px 0; /* Adjust spacing around the section */
+    margin-bottom: 8px; /* Optional: Adds spacing below the line */
+    padding-bottom: 10px; /* Optional: Adds spacing inside the item */
+}
+
+.sectionSeparator {
+    border-top: 1px solid #c9c9c9;
+    margin: -5px 0; /* Adjust spacing around the section */
+    margin-bottom: -17px; /* Optional: Adds spacing below the line */
+    padding-bottom: 5px; /* Optional: Adds spacing inside the item */
+}
+
+.sectionSpace {
+    margin: 70px 0; /* Adjust spacing around the section */
+    margin-bottom: -17px; /* Optional: Adds spacing below the line */
+    padding-bottom: 5px; /* Optional: Adds spacing inside the item */
+}
+
+.itemSeparator {
+    border-bottom: 0px solid #ffffff;
+    margin-bottom: 50px 0; /* Adjust spacing between items */
+}
+
+.itemSeparator:last-child {
+    display: none; /* 确保最后一个 item 不会再有底部的横线 */
+}
+
+.sectionTitle {
+    font-family: 'Noto Sans', Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    color: #969696;
+    cursor: pointer; /* 确保标题可以点击 */
+    display: flex;
+    align-items: center; /* 保持图标和文字对齐 */
+    justify-content: space-between; /* 图标靠右 */
+    padding: 10px 0;
+}
+
+.skillsSectionTitle {
+    font-family: 'Noto Sans', Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    color: #555555;
+    cursor: pointer; /* 确保标题可以点击 */
+    display: flex;
+    align-items: center; /* 保持图标和文字对齐 */
+    gap: 5px; /* Adjusts the spacing */
+}
+
+
+
+.experienceItem {
+    padding: 1rem 0;
+    margin-bottom: -17px; /* 让每项工作经验之间的间距一致 */
+    border-bottom: 1px solid #ccc; /* 添加底部的横线 */
+    /*border-top: 1px solid #ccc;  添加底部的横线 */
+}
+
+
+.experienceTitle{
+    font-family: 'Noto Sans', Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    display: flex;
+    color: #3a3a3a;
+    align-items: center;
+    cursor: pointer;
+    margin: 0rem 0;
+    transition: color 0.3s;
+    width: 100%; /* Ensure it takes full width */
+    gap: 20px;/* Increase space between title and date */
+}
+
+.date {
+    margin-left: auto; /* Pushes date to the right */
+    text-align: right; /* Align text to the right */
+    white-space: nowrap; /* Prevents wrapping */
+}
+
+
+
+.skillTitle {
+    font-family: 'Noto Sans', Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    margin: 1rem 0;
+    transition: color 0.3s;
+}
+
+.experienceTitle:hover,
+.skillTitle:hover {
+    color: #727272;
+}
+
+.toggleIcon {
+    width: 16px;
+    height: 16px;
+    margin-left: 0rem;
+    transition: transform 0.3s;
+}
+
+.skillsToggleIcon {
+    width: 16px;
+    height: 16px;
+    margin-left: 8px;
+    transition: transform 0.3s;
+    vertical-align: middle; /* Ensure it aligns properly */
+}
+
+
+.expandedContent {
+    font-family: 'Noto Sans', Arial, sans-serif;
+    font-size: 16px; /* Adjust size */
+    font-weight: 400; /* Medium weight */
+    display: flex;
+    margin-left: 1rem;
+    padding: 0.5rem 0;
+    flex-direction: column; /* Stack items vertically */
+    align-items: flex-start; /* Ensure left alignment */
+    margin-left: 20px; /* 保持缩进和层级清晰 */
+    gap: 5px; /* Adjust spacing between lines */
+}
+
+
+
+.expandedContent p {
+    margin: 0; /* Remove default margin */
+    padding: 2px 0; /* Add some padding for readability */
+}
+
+
+/* Controls the style of "Position" text */
+.position {
+    font-family: 'Noto Sans', Arial, sans-serif;
+    font-size: 16px; /* Adjust size */
+    font-weight: 400; /* Regular weight */
+    color: #727272; /* Darker color */
+    margin-bottom: 0px; /* Add spacing */
+    display: flex; /* Ensure alignment */
+    gap: 10px; /* Adjusts space between "Position:" label and content */
+    width: 100%;
+    
+}
+
+/* Controls the style of "Work" text */
+.work {
+    font-family: 'Noto Sans', Arial, sans-serif;
+    font-size: 16px; /* Slightly smaller */
+    font-weight: 400; /* Regular weight */
+    color: #727272; /* Darker color */
+   
+    display: flex; /* Ensure alignment */
+    gap: 10px; /* Adjusts space between "Work:" label and content */
+    width: 100%;
+}
+
+
+/* Label styling (for "Position:" and "Work:") */
+.label {
+    min-width: 100px; /* Ensures labels are aligned properly */
+    text-align: left;
+}
+
+
+
+.expandedSkillsContent {
+    margin-left: 1rem;
+    padding: 0.5rem 0;
+    /*border-left: 2px solid #ddd;*/
+    margin-left: 20px; /* 保持缩进和层级清晰 */
+}
+
+
+.expandedContent ul {
+    padding-left: 1.5rem;
+    margin: 0;
+    list-style: disc;
+}
+
+.expandedContent li {
+    font-size: 16px;
+    font-weight: 300;
+    margin-bottom: 0.5rem;
+}
+
+.skillsSection {
+    border-top: 1px solid #707070;
+    border-bottom: 1px solid #707070;
+    padding: 1rem 0;
+}
+
+.skillsSection h3 {
+    font-family: "NotoSans", sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: #707070;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    margin: 0;
+    padding: 0 1rem;
+}
+
+
+
+
+.skillTitle {
+    font-family: 'Noto Sans', Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 10px 0;
+    color: #424242;
+}
+
+.skillTools {
+    font-family: "NotoSans", sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    margin-left: 1rem;
+    color: #5a5a5a;
+    margin-left: 20px;
+    /*list-style-type: disc; /* 使用小圆点列表 */
+}
+
+/* Adds a line below expanded skills */
+.skillsSeparator {
+    border-top: 1px solid #ccc;
+    margin-top: 40px;
+    padding-top: 20px;
+}
+
+.skillsSeparatorTop {
+    border-top: 1px solid #ccc;
+    margin-top: -10px;
+    padding-top: 5px;
+}
+
+
+/* Typography */
+.level1 {
+    font-family: 'Noto Sans', Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    margin-left: 1rem;
+}
+
+
+.educationSpace {
+    margin: 25px; /* Adjust spacing around the section */  
+}
+
+
+
+.level2 {
+    font-family: 'Noto Sans', Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    margin-left: 1rem;
+}
+
+.content {
+    font-family: 'Noto Sans', Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    margin-bottom: 0.5rem;
+    margin-left: 1rem;
+}
+
+/* Utility */
+.hidden {
+    display: none;
+}
+
+
+.footer {
+    text-align: center;
+    padding: 2rem;
+    background-color: #d3d3d3;
+    color: white;
+}
+
+.contactButton {
+    width: 148px; /* Set the desired width */
+    height: 46px; /* Set the desired height */
+    background-color: #ffffff;
+    color: rgb(61, 61, 61);
+    border: none;
+    padding: 10px 20px; /* Adjust inner spacing */
+    font-size: 16px;
+    font-weight: 600;
+    font-family: 'Noto Sans', Arial, sans-serif;
+    border-radius: 8px;
+    cursor: pointer;
+    display: inline-block; /* Ensure it behaves like a block for sizing */
+}
+
+.contactButton:hover {
+    opacity: 0.7;
+}
+
+
+.comeBack {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    
+}
+
+.comeBackTitle {
+    font-family: 'Noto Sans', Arial, sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    margin: 0px;
+    margin-left: 0;
+    align-items: center;
+    color: rgb(36, 36, 36);
+    cursor: pointer; /* Indicates the title is clickable */
+    transition: color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.comeBackTitle:hover {
+    opacity: 0.7; /* Semi-transparent effect on hover */
+}
