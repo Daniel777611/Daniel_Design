@@ -79,6 +79,7 @@ export default function Project3() {
                     loop
                     muted
                     playsInline
+                    crossOrigin="anonymous"
                     className={styles.video}
                 >
                     <source src="https://pub-4d02e3e2fa9d453e960151fde48d51ff.r2.dev/videos/Illuminated_Distance.mp4" type="video/mp4" />

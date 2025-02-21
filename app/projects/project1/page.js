@@ -72,7 +72,13 @@ export default function Project1() {
 
             {/* Video Section */}
             <section className={styles.videoSection}>
-                <video ref={videoRef} id="project1Video" autoPlay loop muted playsInline controls className={styles.video}>
+                <video ref={videoRef} id="project1Video" autoPlay 
+                loop 
+                muted 
+                playsInline 
+                controls 
+                crossOrigin="anonymous"
+                className={styles.video}>
                     <source src="https://pub-4d02e3e2fa9d453e960151fde48d51ff.r2.dev/videos/Murobotix_Project.mp4" type="video/mp4" />
                     Your browser does not support the video tag.
                 </video>

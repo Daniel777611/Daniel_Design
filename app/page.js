@@ -98,8 +98,10 @@ export default function HomePage() {
                     loop
                     muted
                     playsInline
+                    crossOrigin="anonymous"
                     className={styles.video}
                     onEnded={handleVideoEnd}
+                   
                 >
                     <source src="https://pub-4d02e3e2fa9d453e960151fde48d51ff.r2.dev/videos/Daniel_Design_Video.mp4" type="video/mp4" />
                     Your browser does not support the video tag.
