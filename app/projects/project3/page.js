@@ -82,7 +82,7 @@ export default function Project3() {
                     crossOrigin="anonymous"
                     className={styles.video}
                 >
-                    <source src="https://pub-4d02e3e2fa9d453e960151fde48d51ff.r2.dev/videos/Illuminated_Distance.mp4" type="video/mp4" />
+                    <source src="https://danieldesignvideo.org/videos/Illuminated_Distance.mp4" type="video/mp4" />
                     Your browser does not support the video tag.
                 </video>
                 <button

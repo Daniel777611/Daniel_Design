@@ -97,7 +97,7 @@ export default function Contact() {
                         onPause={() => setIsPlaying(false)}
                         onPlay={() => setIsPlaying(true)}
                     >
-                        <source src="https://pub-4d02e3e2fa9d453e960151fde48d51ff.r2.dev/videos/Daniel_Design_De.mp4" type="video/mp4" />
+                        <source src="https://danieldesignvideo.org/videos/Daniel_Design_De.mp4" type="video/mp4" />
                         Your browser does not support the video tag.
                     </video>
                     {!isPlaying && (
