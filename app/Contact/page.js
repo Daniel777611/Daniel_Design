@@ -78,7 +78,7 @@ export default function Contact() {
                 </Link>
                 <nav>
                     <ul className={styles.navList}>
-                        <li><Link href="#project-gallery">Project</Link></li>
+                        <li><Link href="/#project-gallery">Project</Link></li>
                         <li><Link href="/contact">Contact</Link></li>
                     </ul>
                 </nav>
@@ -319,7 +319,7 @@ export default function Contact() {
                 </Link>
                 </div>
             </section>
-
+            
             {/* Footer */}
             <footer className={styles.footer}>
                 <Link href="/#project-gallery">

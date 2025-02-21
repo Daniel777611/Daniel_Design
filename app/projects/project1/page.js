@@ -96,22 +96,40 @@ export default function Project1() {
              <section id="project-gallery" className={styles.gallerySection}>
                 <div className={styles.galleryContainer}>
                     <div className={styles.galleryGrid}>
-                        <Link href="/projects/project1">
-                            <div className={styles.galleryItem}>
-                                <Image src="/projects/project1/1.jpg" alt="Project 1 Cover" width={800} height={600} className={styles.galleryImage} />
-                            </div>
-                        </Link>
 
                         <Link href="/projects/project2">
                             <div className={styles.galleryItem}>
                                 <Image src="/projects/project2/1.jpg" alt="Project 2 Cover" width={800} height={600} className={styles.galleryImage} />
                             </div>
                         </Link>
+
+
+                        <Link href="/projects/project3">
+                                <div className={styles.galleryItem}>
+                                    <Image src="/projects/project3/1.jpg" alt="Project 3 Cover" className={styles.galleryImage} width={800} height={600} />
+                                    {/*<h3 className={styles.galleryItemTitle}>Project 3</h3>*/}
+                                </div>
+                            </Link>
+
+
+
                     </div>
                 </div>
             </section>
 
-           
+        
+
+        
+            <div className={styles.sectionSeparator}></div>
+
+            <section id="comeBack" className={styles.comeBack}>
+
+            <div >
+            <Link href="/">
+                <h1 className={styles.comeBackTitle}>DANIEL DESIGN</h1>
+            </Link>
+            </div>
+            </section>         
 
 
             {/* Full-Screen Modal */}

@@ -131,6 +131,20 @@ export default function Project3() {
                 </div>
             </section>
 
+
+            <div className={styles.sectionSeparator}></div>
+
+            <section id="comeBack" className={styles.comeBack}>
+
+            <div >
+            <Link href="/">
+                <h1 className={styles.comeBackTitle}>DANIEL DESIGN</h1>
+            </Link>
+            </div>
+            </section>         
+
+
+
             <footer className={styles.footer}>
                 <div className={styles.footerCenter}>
                     <Link href="/contact">
