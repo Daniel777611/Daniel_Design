@@ -79,7 +79,7 @@ export default function Project3() {
                     loop
                     muted
                     playsInline
-                    crossOrigin="use-credentials"
+                    
 
                     className={styles.video}
                 >

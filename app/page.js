@@ -98,7 +98,7 @@ export default function HomePage() {
                     loop
                     muted
                     playsInline
-                    crossOrigin="use-credentials"
+                  
 
                     className={styles.video}
                     onEnded={handleVideoEnd}

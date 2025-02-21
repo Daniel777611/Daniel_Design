@@ -91,7 +91,7 @@ export default function Contact() {
                         ref={videoRef}
                         id="portfolioVideo"
                         controls
-                        crossOrigin="use-credentials"
+                       
 
                         className={styles.video}
                         onEnded={handleVideoEnd}

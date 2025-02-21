@@ -77,7 +77,7 @@ export default function Project1() {
                 muted 
                 playsInline 
                 controls 
-                crossOrigin="use-credentials"
+                
 
                 className={styles.video}>
                     <source src="https://danieldesignvideo.org/videos/Murobotix_Project.mp4" type="video/mp4" />
