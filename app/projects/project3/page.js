@@ -145,6 +145,7 @@ export default function Project3() {
 
 
 
+
             <footer className={styles.footer}>
                 <div className={styles.footerCenter}>
                     <Link href="/contact">

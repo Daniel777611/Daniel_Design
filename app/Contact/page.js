@@ -311,6 +311,8 @@ export default function Contact() {
                          </section>
                          </div>
 
+                         
+
              {/* ProjectGallery Section */}
              <section id="comeBack" className={styles.comeBack}>
                 <div >

@@ -132,6 +132,8 @@ export default function Project1() {
             </section>         
 
 
+
+
             {/* Full-Screen Modal */}
             {selectedImage && (
                 <div className={styles.modal} onClick={(e) => {

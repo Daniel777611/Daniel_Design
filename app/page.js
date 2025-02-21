@@ -152,8 +152,7 @@ export default function HomePage() {
                                 </div>
                             </Link>
 
-                        </div>
-                        
+                        </div> 
                         
                 </div>
 
