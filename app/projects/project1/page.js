@@ -65,7 +65,7 @@ export default function Project1() {
                 <nav>
                     <ul className={styles.navList}>
                         <li><Link href="/#project-gallery">Project</Link></li>
-                        <li><Link href="/contact">Contact</Link></li>
+                        <li><Link href="/Contact">Contact</Link></li>
                     </ul>
                 </nav>
             </header>
@@ -89,6 +89,9 @@ export default function Project1() {
                     </div>
                 ))}
             </section>
+
+
+            
 
 
 
@@ -131,7 +134,15 @@ export default function Project1() {
             </div>
             </section>         
 
-
+            {/* Footer */}
+            <footer className={styles.footer}>
+                            <div className={styles.footerCenter}>
+                                <Link href="/Contact">
+                                    <button className={styles.contactButton}>Contact</button>
+                                </Link>
+                            </div>
+                        </footer>
+        
 
 
             {/* Full-Screen Modal */}

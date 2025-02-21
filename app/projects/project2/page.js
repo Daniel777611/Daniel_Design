@@ -42,7 +42,7 @@ export default function Project2() {
                 <nav>
                     <ul className={styles.navList}>
                         <li><Link href="/#project-gallery">Project</Link></li>
-                        <li><Link href="/contact">Contact</Link></li>
+                        <li><Link href="/Contact">Contact</Link></li>
                     </ul>
                 </nav>
             </header>
@@ -103,7 +103,7 @@ export default function Project2() {
             {/* Footer */}
             <footer className={styles.footer}>
                 <div className={styles.footerCenter}>
-                    <Link href="/contact">
+                    <Link href="/Contact">
                         <button className={styles.contactButton}>Contact</button>
                     </Link>
                 </div>

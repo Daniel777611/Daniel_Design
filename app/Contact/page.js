@@ -79,7 +79,7 @@ export default function Contact() {
                 <nav>
                     <ul className={styles.navList}>
                         <li><Link href="/#project-gallery">Project</Link></li>
-                        <li><Link href="/contact">Contact</Link></li>
+                        <li><Link href="/Contact">Contact</Link></li>
                     </ul>
                 </nav>
             </header>
