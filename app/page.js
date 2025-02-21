@@ -99,7 +99,6 @@ export default function HomePage() {
                     muted
                     playsInline
                   crossOrigin="anonymous"
-
                     className={styles.video}
                     onEnded={handleVideoEnd}
                    

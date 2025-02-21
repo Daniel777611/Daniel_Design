@@ -92,7 +92,6 @@ export default function Contact() {
                         id="portfolioVideo"
                         controls
                        crossOrigin="anonymous"
-
                         className={styles.video}
                         onEnded={handleVideoEnd}
                         onPause={() => setIsPlaying(false)}

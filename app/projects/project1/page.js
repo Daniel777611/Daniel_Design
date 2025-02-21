@@ -78,7 +78,6 @@ export default function Project1() {
                 playsInline 
                 controls 
                 crossOrigin="anonymous"
-
                 className={styles.video}>
                     <source src="https://danieldesignvideo.org/videos/Murobotix_Project.mp4" type="video/mp4" />
                     Your browser does not support the video tag.
