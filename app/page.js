@@ -1,7 +1,7 @@
 "use client"; // Enables client-side interactivity
 
 import Link from 'next/link';
-import styles from '../styles/home.module.css';
+import styles from './home.module.css';
 import { useRef } from 'react';
 import Image from 'next/image';
 
@@ -83,7 +83,10 @@ export default function HomePage() {
                  </Link>
                 <nav>
                     <ul className={styles.navList}>
-                        <li><Link href="/#project-gallery">Project</Link></li>
+                        <li><Link href="/ux_design">UX Design</Link></li>
+                        {/*<li><Link href="/ux_engineering">UX Engineering</Link></li>*/}
+                        <li><Link href="/Interactive_design">Interactive Design</Link></li>
+                        <li><Link href="/industrial_design">Industrial Design</Link></li>
                         <li><Link href="/Contact">Contact</Link></li>
                     </ul>
                 </nav>
@@ -114,18 +117,6 @@ export default function HomePage() {
                  </button>
             </section>
 
-            {/* BestProject Section */}
-            <section id="Best-project" className={styles.bestProjectSection}>
-                
-            <Link href="/projects/project1">
-                <div className={styles.bestProjectContainer}>
-                <Image src="/projects/project1/1.jpg" alt="Best Project Cover" className={styles.bestProjectImage} width={1920} height={1080}/>
-                </div>
-                </Link>
-                
-            </section>
-
-
 
             {/* ProjectGallery Section */}
             <section id="project-gallery" className={styles.gallerySection}>
@@ -133,24 +124,39 @@ export default function HomePage() {
                         {/*<h2 className={styles.galleryTitle}>My Projects</h2>*/}
                         <div className={styles.galleryGrid}>
 
-                            <Link href="/projects/project1">
+                            <Link href="/ux_design">
                                 <div className={styles.galleryItem}>
-                                    <Image src="/projects/project1/1.jpg" alt="Project 1 Cover" className={styles.galleryImage} width={800} height={600} />
-                                    {/*<h3 className={styles.galleryItemTitle}>Project 1</h3>*/}
+                                    <Image src="/projects/ux_design/cover/1.jpg" alt="uxDesignCover" className={styles.galleryImage} width={800} height={600} />
+                                    <div className={styles.overlay}>
+                                    <span className={styles.overlayText}>UX Design</span>
+                                    </div>
                                 </div>
                             </Link>
 
-                            <Link href="/projects/project2">
+                             {/*<Link href="/ux_engineering">
                                 <div className={styles.galleryItem}>
-                                    <Image src="/projects/project2/1.jpg" alt="Project 2 Cover" className={styles.galleryImage} width={800} height={600}/>
-                                     {/*<h3 className={styles.galleryItemTitle}>Project 2</h3>*/}
+                                    <Image src="/projects/ux_engineering/cover/1.jpg" alt="uxDesignCover" className={styles.galleryImage} width={800} height={600} />
+                                    <div className={styles.overlay}>
+                                    <span className={styles.overlayText}>UX Engineering</span>
+                                    </div>
+                                </div>
+                            </Link>*/}
+
+                            <Link href="/Interactive_design">
+                                <div className={styles.galleryItem}>
+                                    <Image src="/projects/interactive_design/cover/1.png" alt="interactiveDesignCover" className={styles.galleryImage} width={800} height={600} />
+                                    <div className={styles.overlay}>
+                                    <span className={styles.overlayText}>Interactive Design</span>
+                                    </div>
                                 </div>
                             </Link>
 
-                            <Link href="/projects/project3">
+                            <Link href="/industrial_design">
                                 <div className={styles.galleryItem}>
-                                    <Image src="/projects/project3/1.jpg" alt="Project 3 Cover" className={styles.galleryImage} width={800} height={600} />
-                                    {/*<h3 className={styles.galleryItemTitle}>Project 3</h3>*/}
+                                    <Image src="/projects/industrial_design/cover/1.jpg" alt="industrialDesignCover" className={styles.galleryImage} width={800} height={600} />
+                                    <div className={styles.overlay}>
+                                    <span className={styles.overlayText}>Industrial Design</span>
+                                    </div>
                                 </div>
                             </Link>
 
