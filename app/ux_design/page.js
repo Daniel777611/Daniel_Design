@@ -119,7 +119,7 @@ export default function HomePage() {
                 
             <Link href="/ux_design/projects/project1">
                 <div className={styles.bestProjectContainer}>
-                <Image src="/projects/project1/1.jpg" alt="Best Project Cover" className={styles.bestProjectImage} width={1920} height={1080}/>
+                <Image src="/projects/ux_design/project1/1.jpg" alt="Best Project Cover" className={styles.bestProjectImage} width={1920} height={1080}/>
                 </div>
                 </Link>
                 
