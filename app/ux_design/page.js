@@ -154,6 +154,14 @@ export default function HomePage() {
                                 </div>
                             </Link>
 
+
+                            <Link href="/ux_design/projects/project4">
+                                <div className={styles.galleryItem}>
+                                    <Image src="/projects/ux_design/project4/1.jpg" alt="Project 4 Cover" className={styles.galleryImage} width={800} height={600} />
+                                    {/*<h3 className={styles.galleryItemTitle}>Project 3</h3>*/}
+                                </div>
+                            </Link>
+
                         </div> 
                         
                 </div>

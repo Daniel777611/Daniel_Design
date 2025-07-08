@@ -1,3 +1,7 @@
+.container {
+    padding: 2rem;
+}
+
 /* styles/home.module.css */
 
 .header {
@@ -72,39 +76,7 @@
 }
 
 
-/* Dropdown Menu Styling */
-.dropdownList {
-    display: none; /* Initially hide the dropdown */
-    position: absolute; /* Position relative to parent */
-    top: 100%; /* Place dropdown below the parent item */
-    left: 0;
-    background-color: #ffffff;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    border-radius: 4px;
-    z-index: 1000; /* Ensure it's above other elements */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    align-items: center; /* Vertically center items */
-    justify-content: space-around; /* Distribute items horizontally */
-}
 
-.dropdownList li {
-    padding: 0.5rem 1rem;
-}
-
-.dropdownList li a {
-    color: rgb(49, 49, 49);
-}
-
-.dropdownList li a:hover {
-    background-color: #c5c5c5;
-}
-
-/* Show Dropdown on Hover */
-.navList .dropdown:hover .dropdownList {
-    display: block;
-}
 
 /* Video Section */
 .videoSection {
@@ -123,7 +95,6 @@
     width: 100vw;
     height: 100vh;
     object-fit: cover;
-    
 }
 
 .fullscreenButton {
@@ -154,51 +125,120 @@
 }
 
 
-
-/* Best Project Section Styling */
-.bestProjectSection {
-    background-color: #ffffff; /* Light gray background */
-    padding: 3rem 1rem; /* Add spacing around the section */
+.processVideoSection {
+  width: 100%;
+  background-color: white;
+  padding: 60px 0;
+  text-align: center;
 }
 
-.bestProjectContainer {
-    max-width: 1600px;
-    margin: 0 auto;
+.videoWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.processVideo {
+  width: 80%;
+  max-width: 960px;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+
+
+.PortotypeVideoSection {
+  width: 100%;
+  background-color: white;
+  padding: 60px 0;
+  text-align: center;
+}
+
+.PortotypevideoWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.PortotypeVideo {
+  width: 100%;
+  max-width: 1400px;
+  border-radius: 12px;
+  
+}
+
+/* ProjectGallery Section */
+.imageGallerySection {
+  
+    display: flex; /* Use flexbox */
+    flex-direction: column; /* Stack images vertically */
+    align-items: center; /* Center images horizontally */
+    justify-content: center; /* Center images vertically if needed */
+    background-color: white;
+    gap: 2rem; /* Space between images */
+    padding-top:50px;
+    padding-bottom:50px;
+}
+
+.imageContainer {
+    width: 90%; /* Adjust width as needed */
+    max-width: 1200px; /* Optional: Limit the maximum width */
+    display: flex; /* Use flexbox */
+    align-items: center; /* Center content vertically */
+    justify-content: center; /* Center content horizontally */
+    cursor: pointer;
+    background: rgba(255, 255, 255); 
+    
+}
+
+.projectImage {
+    width: 100%; /* Make image responsive */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Ensure the image covers the container */
+    border-radius: 8px; /* Optional: Add rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Add shadow */
+    background: rgba(255, 255, 255); 
+}
+
+
+/* Modal Styles */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8); /* Dark transparent background */
     display: flex;
-    flex-direction: column;
     align-items: center;
-    text-align: center;
-    gap: 2rem;
+    justify-content: center;
+    z-index: 1000;
+    cursor: pointer;
 }
 
-.bestProjectImage {
-    width:100%;
-    max-width: 1200px; /* Limit the width for large screens */
+.fullScreenImage {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
     border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
-
-.bestProjectImage:hover {
-    transform: translateY(-5px); /* Lift on hover */
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
-    opacity: 0.8;
-}
-
-
 
 
 
 /* Gallery Section Styling */
 .gallerySection {
     background-color: #ffffff; /* Light background for the gallery */
-    padding: 2rem 1rem;
+    padding: 2rem 2rem;
 }
 
 .galleryContainer {
-    max-width: 800px;
+    max-width: 700px;
     margin: 0 auto;
     text-align: center;
-    background: rgba(255, 255, 255); 
+    background-color: #ffffff;
 }
 
 .galleryTitle {
@@ -235,6 +275,7 @@
 .galleryImage {
     width: 100%;
     height: auto;
+    display: block;
     object-fit: cover; /* Maintain aspect ratio, fill space */
     border-bottom: 1px solid #e0e0e0;
 }
@@ -245,6 +286,8 @@
     color: #242424;
     padding: 1rem;
 }
+
+
 
 .comeBack {
     display: flex;
@@ -271,24 +314,66 @@
     opacity: 0.7; /* Semi-transparent effect on hover */
 }
 
+
 .sectionSeparator {
-    border-top: 1px solid #6e6e6e; /* Set the top border to a 1px solid line with a gray color */
-    width: 85%; /* Set the width of the separator to 85% of its parent container */
-    margin: -5px auto; /* Apply negative margin to the top and bottom, and set left and right margins to auto for horizontal centering */
-    padding-bottom: 5px; /* Optional: Adds padding below the border line */
+    
+    width: 100%; /* Set the width of the separator to 85% of its parent container */
+    margin: 0px auto; /* Apply negative margin to the top and bottom, and set left and right margins to auto for horizontal centering */
+    padding-bottom:20px; /* Optional: Adds padding below the border line */
+    padding-top:30px;
     background: rgba(255, 255, 255); 
 }
 
 
+.sectionSeparatorline {
+    border-top: 1px solid #777777; /* Set the top border to a 1px solid line with a gray color */
+    width: 85%; /* Set the width of the separator to 85% of its parent container */
+    margin: 0px auto; /* Apply negative margin to the top and bottom, and set left and right margins to auto for horizontal centering */
+    padding-bottom:5px; /* Optional: Adds padding below the border line */
+    background: rgba(255, 255, 255);
+    
+    
+}
 
 
 .footer {
-    text-align: center;
-    padding: 2rem;
+    display: flex;
+    justify-content: space-between; /* Keeps items spaced apart */
+    align-items: flex-end; /* Align items to the bottom of the footer */
+    position: relative;
     background-color: #d3d3d3;
-    color: white;
+    padding: 2rem;
 }
 
+/* Left section for DANIEL DESIGN */
+.footerLeft {
+    position: absolute;
+    left: 2rem; /* Adjust distance from the left edge */
+}
+
+/* Center section for the Contact button */
+.footerCenter {
+    margin: 0 auto; /* Horizontally center the Contact button */
+    text-align: center;
+}
+
+/* Footer link styling */
+.footerLink {
+    font-family: 'Noto Sans', Arial, sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    color: rgb(36, 36, 36);
+    margin: 0;
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.footerLink:hover {
+    opacity: 0.7; /* Adds a hover effect */
+}
+
+/* Button styling */
 .contactButton {
     width: 150px; /* Set the desired width */
     height: 50px; /* Set the desired height */
@@ -306,4 +391,22 @@
 
 .contactButton:hover {
     opacity: 0.7;
+}
+
+
+
+/* Footer link styling */
+.footerLink {
+    font-family: 'Noto Sans', Arial, sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    color: rgb(61, 61, 61);
+    margin: 0;
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.footerLink:hover {
+    opacity: 0.7; /* Adds a hover effect */
 }
