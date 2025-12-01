@@ -2,11 +2,10 @@
 
 import styles from './project1.module.css';
 import Link from 'next/link';
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 import Image from "next/image";
 
 export default function Project1() {
-    const videoRef = useRef(null);
     const [selectedImage, setSelectedImage] = useState(null);
 
     const images = [
@@ -26,35 +25,7 @@ export default function Project1() {
         "/projects/interactive_design/project1/14.jpg",
         "/projects/interactive_design/project1/15.jpg",
         "/projects/interactive_design/project1/16.jpg",
-    ]; 
-
-    const playFullScreen = () => {
-        const video = videoRef.current;
-        if (video) {
-            video.currentTime = 0;
-            video.muted = false;
-            video.play();
-
-            if (video.requestFullscreen) {
-                video.requestFullscreen();
-            } else if (video.webkitRequestFullscreen) {
-                video.webkitRequestFullscreen();
-            } else if (video.msRequestFullscreen) {
-                video.msRequestFullscreen();
-            }
-
-            document.addEventListener("fullscreenchange", handleExitFullScreen);
-            document.addEventListener("webkitfullscreenchange", handleExitFullScreen);
-            document.addEventListener("msfullscreenchange", handleExitFullScreen);
-        }
-    };
-
-    const handleExitFullScreen = () => {
-        const video = videoRef.current;
-        if (!document.fullscreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement && video) {
-            video.muted = true;
-        }
-    };
+    ];
 
     return (
         <div>
@@ -72,32 +43,11 @@ export default function Project1() {
                 </nav>
             </header>
 
-            {/* Video Section */}
-            <section className={styles.videoSection}>
-                <video ref={videoRef} id="project1Video" autoPlay 
-                loop 
-                muted 
-                playsInline 
-                controls 
-              
-                className={styles.video}>
-                    <source src="https://danieldesignvideo.org/videos/Daniel_Wang_FinalVideo_ixds742_Spring_2025.mp4" type="video/mp4" />
-                    Your browser does not support the video tag.
-                </video>
-                <button className={styles.fullscreenButton} onClick={playFullScreen}>
-                    <Image src="/icon/videoPlay2.png" alt="Play Video" width={1000} height={1000}/>
-                </button>
-            </section>
-
-
-            <div className={styles.sectionSeparator}></div>
-
-
             {/* Process Video Section */}
             <section className={styles.processVideoSection}>
                 <div className={styles.videoWrapper}>
                     <video className={styles.processVideo} controls>
-                    <source src="https://danieldesignvideo.org/videos/Daniel_Wang_ProcessVideo_ixds742_Spring_2025.mp4" type="video/mp4" />
+                    <source src="https://danieldesignvideo.org/Robotaxi_1.mp4" type="video/mp4" />
                     Your browser does not support the video tag.
                     </video>
                 </div>
