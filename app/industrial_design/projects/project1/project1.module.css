@@ -350,8 +350,6 @@
     opacity: 0.7;
 }
 
-
-
 /* Footer link styling */
 .footerLink {
     font-family: 'Noto Sans', Arial, sans-serif;
@@ -367,3 +365,5 @@
 .footerLink:hover {
     opacity: 0.7; /* Adds a hover effect */
 }
+
+

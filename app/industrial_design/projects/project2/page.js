@@ -22,7 +22,12 @@ export default function Project1() {
         "/projects/industrial_design/project2/10.jpg",
         "/projects/industrial_design/project2/11.jpg",
         "/projects/industrial_design/project2/12.jpg",
-        
+        "/projects/industrial_design/project2/13.jpg",
+        "/projects/industrial_design/project2/14.jpg",
+        "/projects/industrial_design/project2/15.jpg",
+        "/projects/industrial_design/project2/16.jpg",
+        "/projects/industrial_design/project2/17.jpg",
+        "/projects/industrial_design/project2/18.jpg",
     ]; 
 
     const playFullScreen = () => {
@@ -82,7 +87,7 @@ export default function Project1() {
                     Your browser does not support the video tag.
                 </video>
                 <button className={styles.fullscreenButton} onClick={playFullScreen}>
-                    <Image src="/icon/videoPlay2.png" alt="Play Video" width={1000} height={1000}/>
+                    <Image src="/icon/videoPlay2.png" alt="Play Video" className={styles.playIcon} width={1000} height={1000} />
                 </button>
             </section>
 

@@ -47,6 +47,7 @@ export default function Project1() {
             document.addEventListener("webkitfullscreenchange", handleExitFullScreen);
             document.addEventListener("msfullscreenchange", handleExitFullScreen);
         }
+
     };
 
     const handleExitFullScreen = () => {

@@ -12,6 +12,7 @@
     color: rgb(36, 36, 36);
     padding: 1rem;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 0 !important;
 }
 
 .title {
@@ -127,16 +128,39 @@
 
 
 /* ProjectGallery Section */
+.heroSection {
+    margin: 0;
+    padding: 0;
+}
+
+.heroImageWrapper {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.heroImage {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
+
 .imageGallerySection {
-  
     display: flex; /* Use flexbox */
     flex-direction: column; /* Stack images vertically */
     align-items: center; /* Center images horizontally */
-    justify-content: center; /* Center images vertically if needed */
+    justify-content: flex-start; /* Top-align content so首图紧贴 header */
     background-color: white;
-    gap: 2rem; /* Space between images */
-    padding-top:50px;
-    padding-bottom:50px;
+    gap: 1.5rem; /* Space between images */
+    padding-top: 0 !important;
+    padding-bottom: 50px;
+    margin-top: 0 !important;
+    margin-bottom: 0;
+    min-height: 0 !important; /* 覆盖全局的 min-height: 100px */
+}
+
+.imageGallerySection .imageContainer:first-child {
+    margin-top: 0 !important;
 }
 
 .imageContainer {
@@ -146,8 +170,41 @@
     align-items: center; /* Center content vertically */
     justify-content: center; /* Center content horizontally */
     cursor: pointer;
-    background: rgba(255, 255, 255); 
-    
+    background: rgba(255, 255, 255);
+    opacity: 0;
+    animation: fadeInOnly 0.6s ease-out forwards;
+    margin-top: 0 !important;
+    margin-bottom: 0;
+    transform: none !important; /* 确保没有滑动效果 */
+}
+
+.imageContainer:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.imageContainer:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.imageContainer:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.imageContainer:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+.imageContainer:nth-child(5) {
+  animation-delay: 0.5s;
+}
+
+@keyframes fadeInOnly {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .projectImage {
@@ -161,26 +218,83 @@
 
 
 /* Modal Styles */
+/* Modal Styles */
 .modal {
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(0, 0, 0, 0.8); /* Dark transparent background */
+    background: rgba(0, 0, 0, 0);
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 1000;
-    cursor: pointer;
+    z-index: 10000;
+    cursor: default;
+    animation: modalFadeIn 0.3s ease-out forwards;
+    overflow: hidden;
+    overscroll-behavior: contain;
+}
+
+@keyframes modalFadeIn {
+  from {
+    background: rgba(0, 0, 0, 0);
+  }
+  to {
+    background: rgba(0, 0, 0, 0.8);
+  }
+}
+
+.fullScreenImageWrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  cursor: grab;
+}
+
+.fullScreenImageWrapper:active {
+  cursor: grabbing;
 }
 
 .fullScreenImage {
-    max-width: 90%;
-    max-height: 90%;
-    object-fit: contain;
-    border-radius: 8px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  pointer-events: none;
+}
+
+.navArrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: transparent;
+  color: #ffffff;
+  font-size: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1001;
+  mix-blend-mode: difference;
+  transition: opacity 0.2s ease;
+}
+
+.navArrowLeft {
+  left: 40px;
+}
+
+.navArrowRight {
+  right: 40px;
+}
+
+.navArrow:hover {
+  background: transparent;
 }
 
 
