@@ -665,7 +665,7 @@ export default function Project3() {
                     }
                  }}
                 >
-                 <img src="/icon/videoPlay2.png" alt="Play Video" className={styles.playIcon} />
+                 <Image src="/icon/videoPlay2.png" alt="Play Video" className={styles.playIcon} width={1000} height={1000} />
                  </button>
             </section>
 
