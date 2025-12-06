@@ -74,7 +74,7 @@ export default function Contact() {
             {/* Top Section */}
             <header className={styles.header}>
                 <Link href="/">
-                    <h1 className={styles.title}>DANIEL DESIGN</h1>
+                    <Image src="/image/logo/headlogo.png" alt="DANIEL DESIGN" className={styles.title} width={160} height={40} />
                 </Link>
                 <nav>
                     <ul className={styles.navList}>
@@ -314,14 +314,20 @@ export default function Contact() {
 
                          
 
-             {/* ProjectGallery Section */}
-             <section id="comeBack" className={styles.comeBack}>
-                <div >
-                <Link href="/">
-                    <h1 className={styles.comeBackTitle}>DANIEL DESIGN</h1>
-                </Link>
-                </div>
-            </section>
+            {/* ProjectGallery Section */}
+            <section id="comeBack" className={styles.comeBack}>
+               <div >
+               <Link href="/">
+                   <Image
+                       src="/image/logo/headlogo.png"
+                       alt="DANIEL DESIGN"
+                       className={styles.comeBackTitle}
+                       width={160}
+                       height={40}
+                   />
+               </Link>
+               </div>
+           </section>
             
             {/* Footer */}
             <footer className={styles.footer}>

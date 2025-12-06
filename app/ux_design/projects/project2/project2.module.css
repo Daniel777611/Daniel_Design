@@ -152,7 +152,7 @@
     justify-content: flex-start; /* Top-align content so首图紧贴 header */
     background-color: white;
     gap: 1.5rem; /* Space between images */
-    padding-top: 0 !important;
+    padding-top: 40px !important; /* 顶部留一点空间，但保持封面感 */
     padding-bottom: 50px;
     margin-top: 0 !important;
     margin-bottom: 0;
@@ -219,30 +219,31 @@
 
 /* Modal Styles */
 /* Modal Styles */
+/* Modal Styles */
+@keyframes modalFadeIn {
+  from {
+    background: rgba(0, 0, 0, 0);
+  }
+  to {
+    background: rgba(0, 0, 0, 0.95);
+  }
+}
+
 .modal {
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(0, 0, 0, 0);
+    background: rgba(0, 0, 0, 0.95);
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 10000;
-    cursor: default;
-    animation: modalFadeIn 0.3s ease-out forwards;
+    z-index: 1000;
+    cursor: pointer;
+    animation: modalFadeIn 0.2s ease;
     overflow: hidden;
     overscroll-behavior: contain;
-}
-
-@keyframes modalFadeIn {
-  from {
-    background: rgba(0, 0, 0, 0);
-  }
-  to {
-    background: rgba(0, 0, 0, 0.8);
-  }
 }
 
 .fullScreenImageWrapper {
@@ -263,8 +264,6 @@
   width: 100%;
   height: 100%;
   object-fit: contain;
-  border-radius: 8px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   pointer-events: none;
 }
 
@@ -275,7 +274,8 @@
   border: none;
   background: transparent;
   color: #ffffff;
-  font-size: 32px;
+  font-size: 48px;
+  font-weight: 300;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -283,6 +283,9 @@
   z-index: 1001;
   mix-blend-mode: difference;
   transition: opacity 0.2s ease;
+  width: 60px;
+  height: 60px;
+  padding: 0;
 }
 
 .navArrowLeft {
@@ -295,6 +298,7 @@
 
 .navArrow:hover {
   background: transparent;
+  opacity: 1;
 }
 
 

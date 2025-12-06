@@ -35,6 +35,24 @@ export default function Project1() {
     const [showLeftImageNav, setShowLeftImageNav] = useState(false);
     const [showRightImageNav, setShowRightImageNav] = useState(false);
 
+    const images = [
+        "/projects/interactive_design/project1/1.jpg",
+        "/projects/interactive_design/project1/2.jpg",
+        "/projects/interactive_design/project1/3.jpg",
+        "/projects/interactive_design/project1/4.jpg",
+        "/projects/interactive_design/project1/5.jpg",
+        "/projects/interactive_design/project1/6.jpg",
+        "/projects/interactive_design/project1/7.jpg",
+        "/projects/interactive_design/project1/8.jpg",
+        "/projects/interactive_design/project1/9.jpg",
+        "/projects/interactive_design/project1/10.jpg",
+        "/projects/interactive_design/project1/11.jpg",
+        "/projects/interactive_design/project1/12.jpg",
+        "/projects/interactive_design/project1/13.jpg",
+        "/projects/interactive_design/project1/14.jpg",
+        "/projects/interactive_design/project1/15.jpg",
+        "/projects/interactive_design/project1/16.jpg",
+    ];
 
     // 打开 / 关闭图片全屏查看（覆盖整个浏览器）
     const openImageModal = (image, index) => {
@@ -238,7 +256,7 @@ export default function Project1() {
         return () => {
             document.removeEventListener('keydown', handleKey);
         };
-    }, [selectedImage, currentImageIndex]);
+    }, [selectedImage, currentImageIndex, images]);
 
     const handlePlay = () => {
         const video = videoRef.current;
@@ -603,31 +621,12 @@ export default function Project1() {
         };
     }, [isDragging, isFullscreen, currentImageIndex]);
 
-    const images = [
-        "/projects/interactive_design/project1/1.jpg",
-        "/projects/interactive_design/project1/2.jpg",
-        "/projects/interactive_design/project1/3.jpg",
-        "/projects/interactive_design/project1/4.jpg",
-        "/projects/interactive_design/project1/5.jpg",
-        "/projects/interactive_design/project1/6.jpg",
-        "/projects/interactive_design/project1/7.jpg",
-        "/projects/interactive_design/project1/8.jpg",
-        "/projects/interactive_design/project1/9.jpg",
-        "/projects/interactive_design/project1/10.jpg",
-        "/projects/interactive_design/project1/11.jpg",
-        "/projects/interactive_design/project1/12.jpg",
-        "/projects/interactive_design/project1/13.jpg",
-        "/projects/interactive_design/project1/14.jpg",
-        "/projects/interactive_design/project1/15.jpg",
-        "/projects/interactive_design/project1/16.jpg",
-    ];
-
     return (
         <div>
             {/* Top Section */}
             <header className={styles.header}>
                 <Link href="/">
-                    <h1 className={styles.title}>DANIEL DESIGN</h1>
+                    <Image src="/image/logo/headlogo.png" alt="DANIEL DESIGN" className={styles.title} width={160} height={40} />
                 </Link>
 
                 <nav>
@@ -676,6 +675,7 @@ export default function Project1() {
                         className={`${styles.videoControls} ${showControls ? styles.controlsVisible : styles.controlsHidden} ${isFullscreen ? styles.fullscreenControls : ''}`}
                         onMouseEnter={handleControlsMouseEnter}
                         onMouseLeave={handleControlsMouseLeave}
+                        onMouseMove={handleVideoMouseMove}
                     >
                         <div 
                             className={styles.progressBarContainer}
@@ -857,7 +857,13 @@ export default function Project1() {
 
             <div >
             <Link href="/">
-                <h1 className={styles.comeBackTitle}>DANIEL DESIGN</h1>
+                <Image
+                    src="/image/logo/headlogo.png"
+                    alt="DANIEL DESIGN"
+                    className={styles.comeBackTitle}
+                    width={160}
+                    height={40}
+                />
             </Link>
             </div>
             </section>         

@@ -104,19 +104,39 @@
     transform: translateX(-50%);
     width: 100px; /* Width of the circle */
     height: 100px; /* Height of the circle */
-    border: none; /* Thin white border for the circle */
-    background-color: transparent; /* Transparent background */
+    border: none !important; /* Thin white border for the circle */
+    background-color: transparent !important; /* Transparent background */
+    background: transparent !important;
     cursor: pointer;
     z-index: 2;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 0;
+    margin: 0;
 }
 
-.playIcon {
-    width: 100%; /* 图标宽度与按钮一致 */
-    height: 100%; /* 图标高度与按钮一致 */
-    object-fit: contain; /* 确保图标按照比例缩放 */
+/* Play icon for fullscreenButton - must be more specific to override .playIcon */
+.fullscreenButton .playIcon {
+    width: 100% !important; /* 图标宽度与按钮一致 */
+    height: 100% !important; /* 图标高度与按钮一致 */
+    object-fit: contain !important; /* 确保图标按照比例缩放 */
+    background: transparent !important;
+    background-color: transparent !important;
+    display: block;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    /* Remove any Next.js Image component default styles */
+    position: relative;
+    z-index: 1;
+}
+
+/* Remove any placeholder or loading state from Next.js Image */
+.fullscreenButton .playIcon::before,
+.fullscreenButton .playIcon::after {
+    display: none !important;
+    content: none !important;
 }
 
 /* Hover effect for the button */
@@ -130,20 +150,34 @@
   background-color: white;
   padding: 60px 0;
   text-align: center;
+  opacity: 1 !important;
+  transform: none !important;
+  filter: blur(0px) !important;
+  transition: none !important;
 }
 
 .videoWrapper {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
+  gap: 0;
 }
 
 .processVideo {
-  width: 80%;
-  max-width: 960px;
-  border-radius: 12px;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  background-color: #ffffff;
+  pointer-events: auto;
+  cursor: pointer;
+  border: none !important;
+  outline: none !important;
+  border-radius: 0 !important;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 
@@ -203,27 +237,349 @@
 }
 
 
+.videoContainer {
+  position: relative;
+  width: 82%;
+  max-width: 1000px;
+  background-color: #ffffff;
+  min-height: 400px;
+  aspect-ratio: 16 / 9;
+  border: none !important;
+  outline: none !important;
+  border-radius: 12px;
+  /* 使用双层阴影：第一层白色描边覆盖圆角处的小线，第二层是真正的柔和阴影 */
+  box-shadow:
+    0 0 0 1px #ffffff,
+    0 0px 15px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}
+
+.processVideo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background-color: #ffffff;
+  display: block;
+  pointer-events: auto;
+  cursor: pointer;
+  border: none !important;
+  outline: none !important;
+  border-radius: 0 !important;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.videoPlayButton {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80px;
+  height: 80px;
+  border: none;
+  background: rgba(134, 134, 134, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: all 0.3s ease;
+}
+
+.videoPlayButton:hover {
+  background: rgba(175, 175, 175, 0.4);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: none;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  transform: translate(-50%, -50%) scale(1.05);
+}
+
+.playIcon {
+  width: 0;
+  height: 0;
+  border-left: 20px solid #ffffff;
+  border-top: 12px solid transparent;
+  border-bottom: 12px solid transparent;
+  margin-left: 4px;
+}
+
+.videoControls {
+  position: relative;
+  width: 82%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px 0 0 0;
+  background: transparent;
+  transition: opacity 0.3s ease;
+}
+
+.controlsVisible {
+  opacity: 1;
+}
+
+.controlsHidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.fullscreenControls {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10000;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.fullscreenControls .controlButton {
+  color: #ffffff;
+}
+
+.fullscreenControls .timeDisplay {
+  color: #ffffff;
+}
+
+.fullscreenControls .progressBarContainer {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.fullscreenControls .progressBarFill {
+  background: #ffffff;
+}
+
+.fullscreenControls .progressBarThumb {
+  background: #ffffff;
+}
+
+.fullscreenControls .volumeSliderWrapper {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.fullscreenControls .volumeSliderFill {
+  background: #ffffff;
+}
+
+.progressBarContainer {
+  width: 100%;
+  height: 6px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+  cursor: pointer;
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.progressBar {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.progressBarFill {
+  height: 100%;
+  background: #242424;
+  border-radius: 3px;
+  transition: width 0.1s linear;
+}
+
+.progressBarThumb {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 14px;
+  height: 14px;
+  background: #242424;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: left 0.1s linear;
+}
+
+.controlBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.controlBarLeft {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.controlBarRight {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.controlButton {
+  background: transparent;
+  border: none;
+  color: #242424;
+  cursor: pointer;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s ease;
+}
+
+.controlButton:hover {
+  opacity: 0.7;
+}
+
+.controlIcon {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+}
+
+.timeDisplay {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #242424;
+  font-size: 14px;
+  font-family: 'Noto Sans', Arial, sans-serif;
+}
+
+.currentTime,
+.duration {
+  font-weight: 500;
+}
+
+.timeSeparator {
+  opacity: 0.7;
+}
+
+.volumeControlPanel {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.volumeSliderWrapper {
+  position: relative;
+  width: 80px;
+  height: 4px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.volumeSliderFill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: #242424;
+  border-radius: 2px;
+  pointer-events: none;
+}
+
+.volumeSlider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+  margin: 0;
+}
+
 /* Modal Styles */
+@keyframes modalFadeIn {
+  from {
+    background: rgba(0, 0, 0, 0);
+  }
+  to {
+    background: rgba(0, 0, 0, 0.95);
+  }
+}
+
 .modal {
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(0, 0, 0, 0.8); /* Dark transparent background */
+    background: rgba(0, 0, 0, 0.95);
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 1000;
     cursor: pointer;
+    animation: modalFadeIn 0.2s ease;
+    overflow: hidden;
+    overscroll-behavior: contain;
+}
+
+.fullScreenImageWrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  cursor: grab;
+}
+
+.fullScreenImageWrapper:active {
+  cursor: grabbing;
 }
 
 .fullScreenImage {
-    max-width: 90%;
-    max-height: 90%;
-    object-fit: contain;
-    border-radius: 8px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.navArrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: transparent;
+  color: #ffffff;
+  font-size: 48px;
+  font-weight: 300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1001;
+  mix-blend-mode: difference;
+  transition: opacity 0.2s ease;
+  width: 60px;
+  height: 60px;
+  padding: 0;
+}
+
+.navArrowLeft {
+  left: 40px;
+}
+
+.navArrowRight {
+  right: 40px;
+}
+
+.navArrow:hover {
+  background: transparent;
+  opacity: 1;
 }
 
 

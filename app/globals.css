@@ -18,4 +18,1020 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+  background-color: #ffffff !important;
+}
+
+html {
+  background-color: #ffffff !important;
+}
+
+/* 全局平滑滚动 */
+html {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* 
+section {
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+}
+*/
+
+/* 页面切换淡入淡出动画 */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+
+/* 页面过渡容器 */
+.page-transition {
+  width: 100%;
+  min-height: 100vh;
+}
+
+.page-transition.fade-in {
+  animation: fadeIn 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.page-transition.fade-out {
+  animation: fadeOut 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* 页面容器淡入 */
+main,
+div[role="main"] {
+  animation: fadeIn 0.4s ease-out;
+}
+
+/* 图片加载动画 */
+@keyframes imageFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* 滚动时元素出现动画 */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 链接过渡效果 */
+a {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 按钮过渡效果 */
+button {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 图片平滑加载 */
+img {
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+/* 滚动时元素出现的动画类 */
+.fadeInUp {
+  animation: slideUp 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+/* 图片淡入动画 */
+.imageFadeIn {
+  animation: imageFadeIn 0.5s ease-out forwards;
+}
+
+/* 延迟动画（用于画廊项目） */
+.fadeInUpDelay1 {
+  animation: slideUp 0.6s ease-out 0.1s forwards;
+  opacity: 0;
+}
+
+.fadeInUpDelay2 {
+  animation: slideUp 0.6s ease-out 0.2s forwards;
+  opacity: 0;
+}
+
+.fadeInUpDelay3 {
+  animation: slideUp 0.6s ease-out 0.3s forwards;
+  opacity: 0;
+}
+
+/* 增强的Section滚动切换动画（流畅过渡，无模糊效果） */
+.section-hidden {
+  opacity: 0.4;
+  transform: translateY(30px) scale(0.96);
+  filter: blur(0px) !important;
+  transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.section-visible {
+  opacity: 1 !important;
+  transform: translateY(0) scale(1) !important;
+  filter: blur(0px) !important;
+  transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.section-leaving {
+  opacity: 0.95;
+  transform: translateY(-5px) scale(0.99);
+  filter: blur(0px) !important;
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* 确保所有section和图片元素始终清晰 */
+section,
+.imageContainer,
+.galleryItem,
+.projectImage,
+.galleryImage,
+img {
+  filter: blur(0px) !important;
+}
+
+/* Gallery section不应用滚动动画 */
+.imageGallerySection {
+  opacity: 1 !important;
+  transform: none !important;
+  filter: blur(0px) !important;
+  transition: none !important;
+}
+
+.imageGallerySection * {
+  pointer-events: auto;
+}
+
+/* 苹果风格的视差元素 */
+.parallax-element {
+  will-change: transform;
+  transform: translateY(var(--parallax-offset, 0px));
+  transition: transform 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* 确保section背景始终可见 */
+section {
+  background-color: inherit;
+  min-height: 100px; /* 确保section有足够高度 */
+  opacity: 1 !important; /* 确保section始终可见 */
+}
+
+/* 允许section-initialized的section使用动态opacity */
+section.section-initialized {
+  opacity: inherit !important;
+}
+
+/* 滚动触发动画 */
+.scroll-hidden {
+  opacity: 0;
+  transform: translateY(50px) scale(0.98);
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), 
+              transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: opacity, transform;
+}
+
+/* 确保图片容器始终可见 */
+.imageContainer {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+.imageContainer.scroll-hidden,
+.imageContainer.scroll-visible {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* 确保body、html和header、footer等容器元素不会被隐藏 */
+body.scroll-hidden,
+html.scroll-hidden,
+header.scroll-hidden,
+footer.scroll-hidden,
+body.scroll-visible,
+html.scroll-visible,
+header.scroll-visible,
+footer.scroll-visible,
+body.section-hidden,
+html.section-hidden,
+header.section-hidden,
+footer.section-hidden,
+body.section-visible,
+html.section-visible,
+header.section-visible,
+footer.section-visible {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+.scroll-visible {
+  opacity: 1 !important;
+  transform: translateY(0) scale(1) !important;
+}
+
+/* 滚动时的淡入效果 */
+@keyframes scrollFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 滚动进度条样式 */
+#scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, rgba(36, 36, 36, 0.9), rgba(36, 36, 36, 0.7));
+  z-index: 9999;
+  transition: width 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* 滚动视差效果 */
+.parallax-slow {
+  transition: transform 0.3s ease-out;
+}
+
+/* 苹果风格的平滑滚动增强 */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 0;
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 优化滚动性能 */
+* {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  perspective: 1000;
+}
+
+/* 滚动时的缩放效果 */
+@keyframes scrollScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.scroll-scale {
+  animation: scrollScale 0.6s ease-out forwards;
+}
+
+/* 模态框动画 */
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modalImageScale {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* 减少动画（尊重用户的偏好设置） */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+html {
+  background-color: #ffffff !important;
+}
+
+/* 全局平滑滚动 */
+html {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* 为section添加scroll snap（可选，用于更精确的居中） */
+section {
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+}
+
+/* 页面切换淡入淡出动画 */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+
+/* 页面过渡容器 */
+.page-transition {
+  width: 100%;
+  min-height: 100vh;
+}
+
+.page-transition.fade-in {
+  animation: fadeIn 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.page-transition.fade-out {
+  animation: fadeOut 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* 页面容器淡入 */
+main,
+div[role="main"] {
+  animation: fadeIn 0.4s ease-out;
+}
+
+/* 图片加载动画 */
+@keyframes imageFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* 滚动时元素出现动画 */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 链接过渡效果 */
+a {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 按钮过渡效果 */
+button {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 图片平滑加载 */
+img {
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+/* 滚动时元素出现的动画类 */
+.fadeInUp {
+  animation: slideUp 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+/* 图片淡入动画 */
+.imageFadeIn {
+  animation: imageFadeIn 0.5s ease-out forwards;
+}
+
+/* 延迟动画（用于画廊项目） */
+.fadeInUpDelay1 {
+  animation: slideUp 0.6s ease-out 0.1s forwards;
+  opacity: 0;
+}
+
+.fadeInUpDelay2 {
+  animation: slideUp 0.6s ease-out 0.2s forwards;
+  opacity: 0;
+}
+
+.fadeInUpDelay3 {
+  animation: slideUp 0.6s ease-out 0.3s forwards;
+  opacity: 0;
+}
+
+/* 增强的Section滚动切换动画（流畅过渡，无模糊效果） */
+.section-hidden {
+  opacity: 0.4;
+  transform: translateY(30px) scale(0.96);
+  filter: blur(0px) !important;
+  transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.section-visible {
+  opacity: 1 !important;
+  transform: translateY(0) scale(1) !important;
+  filter: blur(0px) !important;
+  transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.section-leaving {
+  opacity: 0.95;
+  transform: translateY(-5px) scale(0.99);
+  filter: blur(0px) !important;
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* 确保所有section和图片元素始终清晰 */
+section,
+.imageContainer,
+.galleryItem,
+.projectImage,
+.galleryImage,
+img {
+  filter: blur(0px) !important;
+}
+
+/* Gallery section不应用滚动动画 */
+.imageGallerySection {
+  opacity: 1 !important;
+  transform: none !important;
+  filter: blur(0px) !important;
+  transition: none !important;
+}
+
+.imageGallerySection * {
+  pointer-events: auto;
+}
+
+/* 苹果风格的视差元素 */
+.parallax-element {
+  will-change: transform;
+  transform: translateY(var(--parallax-offset, 0px));
+  transition: transform 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* 确保section背景始终可见 */
+section {
+  background-color: inherit;
+  min-height: 100px; /* 确保section有足够高度 */
+  opacity: 1 !important; /* 确保section始终可见 */
+}
+
+/* 允许section-initialized的section使用动态opacity */
+section.section-initialized {
+  opacity: inherit !important;
+}
+
+/* 滚动触发动画 */
+.scroll-hidden {
+  opacity: 0;
+  transform: translateY(50px) scale(0.98);
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), 
+              transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: opacity, transform;
+}
+
+/* 确保图片容器始终可见 */
+.imageContainer {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+.imageContainer.scroll-hidden,
+.imageContainer.scroll-visible {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* 确保body、html和header、footer等容器元素不会被隐藏 */
+body.scroll-hidden,
+html.scroll-hidden,
+header.scroll-hidden,
+footer.scroll-hidden,
+body.scroll-visible,
+html.scroll-visible,
+header.scroll-visible,
+footer.scroll-visible,
+body.section-hidden,
+html.section-hidden,
+header.section-hidden,
+footer.section-hidden,
+body.section-visible,
+html.section-visible,
+header.section-visible,
+footer.section-visible {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+.scroll-visible {
+  opacity: 1 !important;
+  transform: translateY(0) scale(1) !important;
+}
+
+/* 滚动时的淡入效果 */
+@keyframes scrollFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 滚动进度条样式 */
+#scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, rgba(36, 36, 36, 0.9), rgba(36, 36, 36, 0.7));
+  z-index: 9999;
+  transition: width 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* 滚动视差效果 */
+.parallax-slow {
+  transition: transform 0.3s ease-out;
+}
+
+/* 苹果风格的平滑滚动增强 */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 0;
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 优化滚动性能 */
+* {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  perspective: 1000;
+}
+
+/* 滚动时的缩放效果 */
+@keyframes scrollScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.scroll-scale {
+  animation: scrollScale 0.6s ease-out forwards;
+}
+
+/* 模态框动画 */
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modalImageScale {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* 减少动画（尊重用户的偏好设置） */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+html {
+  background-color: #ffffff !important;
+}
+
+/* 全局平滑滚动 */
+html {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* 为section添加scroll snap（可选，用于更精确的居中） */
+section {
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+}
+
+/* 页面切换淡入淡出动画 */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+
+/* 页面过渡容器 */
+.page-transition {
+  width: 100%;
+  min-height: 100vh;
+}
+
+.page-transition.fade-in {
+  animation: fadeIn 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.page-transition.fade-out {
+  animation: fadeOut 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* 页面容器淡入 */
+main,
+div[role="main"] {
+  animation: fadeIn 0.4s ease-out;
+}
+
+/* 图片加载动画 */
+@keyframes imageFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* 滚动时元素出现动画 */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 链接过渡效果 */
+a {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 按钮过渡效果 */
+button {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 图片平滑加载 */
+img {
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+/* 滚动时元素出现的动画类 */
+.fadeInUp {
+  animation: slideUp 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+/* 图片淡入动画 */
+.imageFadeIn {
+  animation: imageFadeIn 0.5s ease-out forwards;
+}
+
+/* 延迟动画（用于画廊项目） */
+.fadeInUpDelay1 {
+  animation: slideUp 0.6s ease-out 0.1s forwards;
+  opacity: 0;
+}
+
+.fadeInUpDelay2 {
+  animation: slideUp 0.6s ease-out 0.2s forwards;
+  opacity: 0;
+}
+
+.fadeInUpDelay3 {
+  animation: slideUp 0.6s ease-out 0.3s forwards;
+  opacity: 0;
+}
+
+/* 增强的Section滚动切换动画（流畅过渡，无模糊效果） */
+.section-hidden {
+  opacity: 0.4;
+  transform: translateY(30px) scale(0.96);
+  filter: blur(0px) !important;
+  transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.section-visible {
+  opacity: 1 !important;
+  transform: translateY(0) scale(1) !important;
+  filter: blur(0px) !important;
+  transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.section-leaving {
+  opacity: 0.95;
+  transform: translateY(-5px) scale(0.99);
+  filter: blur(0px) !important;
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* 确保所有section和图片元素始终清晰 */
+section,
+.imageContainer,
+.galleryItem,
+.projectImage,
+.galleryImage,
+img {
+  filter: blur(0px) !important;
+}
+
+/* Gallery section不应用滚动动画 */
+.imageGallerySection {
+  opacity: 1 !important;
+  transform: none !important;
+  filter: blur(0px) !important;
+  transition: none !important;
+}
+
+.imageGallerySection * {
+  pointer-events: auto;
+}
+
+/* 苹果风格的视差元素 */
+.parallax-element {
+  will-change: transform;
+  transform: translateY(var(--parallax-offset, 0px));
+  transition: transform 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* 确保section背景始终可见 */
+section {
+  background-color: inherit;
+  min-height: 100px; /* 确保section有足够高度 */
+  opacity: 1 !important; /* 确保section始终可见 */
+}
+
+/* 允许section-initialized的section使用动态opacity */
+section.section-initialized {
+  opacity: inherit !important;
+}
+
+/* 滚动触发动画 */
+.scroll-hidden {
+  opacity: 0;
+  transform: translateY(50px) scale(0.98);
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), 
+              transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: opacity, transform;
+}
+
+/* 确保图片容器始终可见 */
+.imageContainer {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+.imageContainer.scroll-hidden,
+.imageContainer.scroll-visible {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* 确保body、html和header、footer等容器元素不会被隐藏 */
+body.scroll-hidden,
+html.scroll-hidden,
+header.scroll-hidden,
+footer.scroll-hidden,
+body.scroll-visible,
+html.scroll-visible,
+header.scroll-visible,
+footer.scroll-visible,
+body.section-hidden,
+html.section-hidden,
+header.section-hidden,
+footer.section-hidden,
+body.section-visible,
+html.section-visible,
+header.section-visible,
+footer.section-visible {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+.scroll-visible {
+  opacity: 1 !important;
+  transform: translateY(0) scale(1) !important;
+}
+
+/* 滚动时的淡入效果 */
+@keyframes scrollFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 滚动进度条样式 */
+#scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, rgba(36, 36, 36, 0.9), rgba(36, 36, 36, 0.7));
+  z-index: 9999;
+  transition: width 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* 滚动视差效果 */
+.parallax-slow {
+  transition: transform 0.3s ease-out;
+}
+
+/* 苹果风格的平滑滚动增强 */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 0;
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 优化滚动性能 */
+* {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  perspective: 1000;
+}
+
+/* 滚动时的缩放效果 */
+@keyframes scrollScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.scroll-scale {
+  animation: scrollScale 0.6s ease-out forwards;
+}
+
+/* 模态框动画 */
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modalImageScale {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* 减少动画（尊重用户的偏好设置） */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
