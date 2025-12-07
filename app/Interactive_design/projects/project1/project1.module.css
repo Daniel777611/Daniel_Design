@@ -436,7 +436,7 @@
   width: 100%;
   height: 100%;
   opacity: 0;
-  cursor: pointer;
+    cursor: pointer;
   margin: 0;
 }
 
@@ -447,7 +447,7 @@
   }
   to {
     background: rgba(0, 0, 0, 0.95);
-  }
+}
 }
 
 .modal {
@@ -475,7 +475,7 @@
   justify-content: center;
   overflow: hidden;
   cursor: grab;
-}
+  }
 
 .fullScreenImageWrapper:active {
   cursor: grabbing;
@@ -484,7 +484,7 @@
 .fullScreenImage {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+    object-fit: contain;
   pointer-events: none;
 }
 
@@ -500,7 +500,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
+    cursor: pointer;
   z-index: 1001;
   mix-blend-mode: difference;
   transition: opacity 0.2s ease;
@@ -515,11 +515,11 @@
 
 .navArrowRight {
   right: 40px;
-}
+  }
 
 .navArrow:hover {
   background: transparent;
-  opacity: 1;
+    opacity: 1;
 }
 
 

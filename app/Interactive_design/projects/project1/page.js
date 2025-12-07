@@ -540,12 +540,12 @@ export default function Project1() {
             } else if (wasFullscreen && !isNowFullscreen) {
                 // 退出全屏：视频全屏时滚回视频区；图片全屏时滚动到当前图片位置
                 if (fullscreenSourceRef.current === 'video') {
-                    setTimeout(() => {
-                        const videoSection = document.querySelector(`.${styles.processVideoSection}`);
-                        if (videoSection) {
-                            videoSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                        }
-                    }, 100);
+                setTimeout(() => {
+                    const videoSection = document.querySelector(`.${styles.processVideoSection}`);
+                    if (videoSection) {
+                        videoSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                }, 100);
                 } else if (fullscreenSourceRef.current === 'image') {
                     const index = currentImageIndex;
                     // 清除当前选中的图片
@@ -793,8 +793,8 @@ export default function Project1() {
             {/* Image Gallery Section - click to open fullscreen viewer */}
             <section className={styles.imageGallerySection}>
                 {images.map((image, index) => (
-                    <div
-                        key={index}
+                    <div 
+                        key={index} 
                         className={styles.imageContainer}
                         onClick={() => openImageModal(image, index)}
                         ref={(el) => (imageRefs.current[index] = el)}
@@ -870,18 +870,18 @@ export default function Project1() {
 
             {/* Footer */}
             <footer className={styles.footer}>
-                <div className={styles.footerCenter}>
-                    <Link href="/Contact">
-                        <button className={styles.contactButton}>Contact</button>
-                    </Link>
-                </div>
-            </footer>
+                            <div className={styles.footerCenter}>
+                                <Link href="/Contact">
+                                    <button className={styles.contactButton}>Contact</button>
+                                </Link>
+                            </div>
+                        </footer>
 
             {/* Full-Screen Modal */}
             {selectedImage && (
                 <div 
                     ref={imageViewerRef}
-                    className={styles.modal}
+                    className={styles.modal} 
                     onClick={closeModal}
                     onWheel={handleImageWheel}
                     onMouseDown={handleImageMouseDown}
@@ -894,7 +894,7 @@ export default function Project1() {
                             opacity: showLeftImageNav ? 1 : 0,
                             pointerEvents: showLeftImageNav ? 'auto' : 'none',
                         }}
-                        onClick={(e) => {
+                    onClick={(e) => {
                             e.stopPropagation();
                             if (currentImageIndex != null && currentImageIndex > 0) {
                                 const prev = currentImageIndex - 1;
@@ -910,13 +910,13 @@ export default function Project1() {
                     <div
                         className={styles.fullScreenImageWrapper}
                         onClick={(e) => e.stopPropagation()}
-                    >
-                        <Image
-                            src={selectedImage}
-                            alt="Full Screen"
-                            width={2560}
-                            height={1440}
-                            className={styles.fullScreenImage}
+                >
+                    <Image 
+                        src={selectedImage} 
+                        alt="Full Screen" 
+                        width={2560} 
+                        height={1440} 
+                        className={styles.fullScreenImage}
                             style={{
                                 transform: `translate(${imageOffset.x}px, ${imageOffset.y}px) scale(${imageScale})`,
                             }}

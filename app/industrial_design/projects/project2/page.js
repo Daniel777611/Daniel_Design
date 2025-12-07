@@ -444,7 +444,7 @@ export default function Project1() {
                                 setImageOffset({ x: 0, y: 0 });
                                 setCurrentImageIndex(prev);
                                 setSelectedImage(images[prev]);
-                            }
+                    }
                         }}
                     >
                         ‹

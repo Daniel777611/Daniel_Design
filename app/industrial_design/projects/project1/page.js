@@ -73,7 +73,7 @@ export default function Project1() {
                 el.requestFullscreen().catch(() => {
                     fullscreenSourceRef.current = null;
                 });
-            }
+                }
         }
     }, [selectedImage]);
 
@@ -152,7 +152,7 @@ export default function Project1() {
                 x: lastOffsetRef.current.x + dx,
                 y: lastOffsetRef.current.y + dy,
             });
-        };
+    };
 
         const handleUp = () => {
             isPanningRef.current = false;
@@ -257,7 +257,7 @@ export default function Project1() {
                 video.webkitRequestFullscreen();
             } else if (video.msRequestFullscreen) {
                 video.msRequestFullscreen();
-            }
+                    }
 
             document.addEventListener("fullscreenchange", handleExitFullScreen);
             document.addEventListener("webkitfullscreenchange", handleExitFullScreen);
@@ -270,8 +270,8 @@ export default function Project1() {
         const video = videoRef.current;
         if (!document.fullscreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement && video) {
             video.muted = true;
-        }
-    };
+            }
+        };
 
     return (
         <div>

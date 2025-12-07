@@ -14,7 +14,7 @@ export default function PageTransition({ children }) {
         // 路径变化时，先淡出再淡入新内容
         if (prevPathnameRef.current !== pathname) {
             setIsVisible(false);
-
+            
             const timer = setTimeout(() => {
                 setDisplayChildren(children);
                 prevPathnameRef.current = pathname;
@@ -30,7 +30,7 @@ export default function PageTransition({ children }) {
         }
 
         // 路径未变化时，直接显示
-        setDisplayChildren(children);
+            setDisplayChildren(children);
         setIsVisible(true);
     }, [pathname, children]);
 
@@ -41,7 +41,7 @@ export default function PageTransition({ children }) {
     }, [pathname]);
 
     return (
-        <div
+        <div 
             className="page-transition"
             style={{
                 opacity: isVisible ? 1 : 0,

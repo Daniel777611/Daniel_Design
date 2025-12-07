@@ -960,7 +960,7 @@ export default function Project3() {
                     <div
                         className={styles.fullScreenImageWrapper}
                         onClick={(e) => e.stopPropagation()}
-                    >
+                            >
                         <Image
                             src={selectedImage}
                             alt="Full Screen"
