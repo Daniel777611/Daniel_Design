@@ -35,6 +35,23 @@ export default function Project1() {
     const [showLeftImageNav, setShowLeftImageNav] = useState(false);
     const [showRightImageNav, setShowRightImageNav] = useState(false);
 
+    // 设置页面背景颜色
+    useEffect(() => {
+        // 保存原始背景颜色
+        const originalBodyBg = document.body.style.backgroundColor;
+        const originalHtmlBg = document.documentElement.style.backgroundColor;
+        
+        // 设置新的背景颜色
+        document.body.style.backgroundColor = '#1f1f1f';
+        document.documentElement.style.backgroundColor = '#1f1f1f';
+        
+        // 清理函数：组件卸载时恢复原始背景
+        return () => {
+            document.body.style.backgroundColor = originalBodyBg;
+            document.documentElement.style.backgroundColor = originalHtmlBg;
+        };
+    }, []);
+
     const images = [
         "/projects/ux_design/project1/1.jpg",
         "/projects/ux_design/project1/2.jpg",
@@ -620,7 +637,7 @@ export default function Project1() {
     }, [isDragging, isFullscreen, currentImageIndex]);
 
     return (
-        <div>
+        <div className={styles.pageContainer}>
             {/* Top Section */}
             <header className={styles.header}>
                 <Link href="/">

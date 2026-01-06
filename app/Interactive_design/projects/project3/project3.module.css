@@ -1,3 +1,8 @@
+.pageContainer {
+    background-color: transparent;
+    min-height: 100vh;
+}
+
 .container {
     padding: 2rem;
 }
@@ -8,10 +13,10 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #ffffff;
-    color: rgb(36, 36, 36);
+    background-color: transparent;
+    color: #ffffff;
     padding: 1rem;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: none;
 }
 
 .title {
@@ -20,7 +25,7 @@
     font-size: 18px;
     margin: 0px;
     margin-left: 17px;
-    color: rgb(36, 36, 36);
+    color: #ffffff;
     cursor: pointer; /* Indicates the title is clickable */
     transition: color 0.3s ease; /* Smooth transition for hover effect */
 }
@@ -41,7 +46,7 @@
     gap: 20px;
     padding: 0;
     margin: 0;
-    color: rgb(36, 36, 36);
+    color: #ffffff;
 }
 
 .navList :hover{
@@ -61,7 +66,7 @@
 
 .navList li a {
     text-decoration: none;
-    color: rgb(36, 36, 36);
+    color: #ffffff;
     transition: opacity 0.3s ease
     
 }
@@ -84,7 +89,7 @@
     width: 100%;
     height: 100vh;
     overflow: hidden;
-    background: rgba(255, 255, 255); 
+    background: transparent;
 }
 
 .video {
@@ -133,7 +138,7 @@
     flex-direction: column; /* Stack images vertically */
     align-items: center; /* Center images horizontally */
     justify-content: center; /* Center images vertically if needed */
-    background-color: white;
+    background-color: transparent;
     gap: 2rem; /* Space between images */
     padding-top:50px;
     padding-bottom:50px;
@@ -146,7 +151,7 @@
     align-items: center; /* Center content vertically */
     justify-content: center; /* Center content horizontally */
     cursor: pointer;
-    background: rgba(255, 255, 255); 
+    background: transparent;
     
 }
 
@@ -156,7 +161,7 @@
     object-fit: cover; /* Ensure the image covers the container */
     border-radius: 8px; /* Optional: Add rounded corners */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Add shadow */
-    background: rgba(255, 255, 255); 
+    background: transparent;
 }
 
 
@@ -247,7 +252,7 @@
 
 /* Gallery Section Styling */
 .gallerySection {
-    background-color: #ffffff; /* Light background for the gallery */
+    background-color: transparent;
     padding: 2rem 2rem;
 }
 
@@ -255,7 +260,7 @@
     max-width: 700px;
     margin: 0 auto;
     text-align: center;
-    background-color: #ffffff;
+    background-color: transparent;
 }
 
 .galleryTitle {
@@ -311,7 +316,7 @@
     justify-content: center;
     align-items: center;
     padding: 2rem;
-    background: rgba(255, 255, 255); 
+    background: transparent;
     
 }
 
@@ -322,7 +327,7 @@
     margin: 0px;
     margin-left: 0;
     align-items: center;
-    color: rgb(36, 36, 36);
+    color: #ffffff;
     cursor: pointer; /* Indicates the title is clickable */
     transition: color 0.3s ease; /* Smooth transition for hover effect */
 }
@@ -338,7 +343,7 @@
     margin: 0px auto; /* Apply negative margin to the top and bottom, and set left and right margins to auto for horizontal centering */
     padding-bottom:20px; /* Optional: Adds padding below the border line */
     padding-top:30px;
-    background: rgba(255, 255, 255); 
+    background: transparent;
 }
 
 
@@ -347,7 +352,7 @@
     width: 85%; /* Set the width of the separator to 85% of its parent container */
     margin: 0px auto; /* Apply negative margin to the top and bottom, and set left and right margins to auto for horizontal centering */
     padding-bottom:5px; /* Optional: Adds padding below the border line */
-    background: rgba(255, 255, 255);
+    background: transparent;
     
     
 }
@@ -358,7 +363,9 @@
     justify-content: space-between; /* Keeps items spaced apart */
     align-items: flex-end; /* Align items to the bottom of the footer */
     position: relative;
-    background-color: #d3d3d3;
+    background-color: rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     padding: 2rem;
 }
 
@@ -379,7 +386,7 @@
     font-family: 'Noto Sans', Arial, sans-serif;
     font-weight: 500;
     font-size: 18px;
-    color: rgb(36, 36, 36);
+    color: #ffffff;
     margin: 0;
     text-decoration: none;
     cursor: pointer;
@@ -394,8 +401,8 @@
 .contactButton {
     width: 150px; /* Set the desired width */
     height: 50px; /* Set the desired height */
-    background-color: #ffffff;
-    color: rgb(61, 61, 61);
+    background-color: rgba(0, 0, 0, 0.35);
+    color: #ffffff;
     border: none;
     padding: 10px 20px; /* Adjust inner spacing */
     font-size: 16px;

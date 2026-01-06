@@ -21,6 +21,62 @@ export default function Project1() {
     const [showLeftImageNav, setShowLeftImageNav] = useState(false);
     const [showRightImageNav, setShowRightImageNav] = useState(false);
 
+    // 设置页面背景（深灰→黑渐变，覆盖 globals.css 里的白底 `!important`）
+    useEffect(() => {
+        const bgImage =
+            'radial-gradient(circle at 20% 10%, rgba(60,60,60,0.55) 0%, rgba(25,25,25,0.85) 45%, rgba(0,0,0,1) 100%),' +
+            'linear-gradient(165deg, #2b2b2b 0%, #000000 100%)';
+
+        const original = {
+            bodyBgColor: document.body.style.getPropertyValue('background-color'),
+            bodyBgColorP: document.body.style.getPropertyPriority('background-color'),
+            bodyBgImage: document.body.style.getPropertyValue('background-image'),
+            bodyBgImageP: document.body.style.getPropertyPriority('background-image'),
+            bodyBgAttach: document.body.style.getPropertyValue('background-attachment'),
+            bodyBgAttachP: document.body.style.getPropertyPriority('background-attachment'),
+            bodyBgRepeat: document.body.style.getPropertyValue('background-repeat'),
+            bodyBgRepeatP: document.body.style.getPropertyPriority('background-repeat'),
+            bodyBgSize: document.body.style.getPropertyValue('background-size'),
+            bodyBgSizeP: document.body.style.getPropertyPriority('background-size'),
+            htmlBgColor: document.documentElement.style.getPropertyValue('background-color'),
+            htmlBgColorP: document.documentElement.style.getPropertyPriority('background-color'),
+            htmlBgImage: document.documentElement.style.getPropertyValue('background-image'),
+            htmlBgImageP: document.documentElement.style.getPropertyPriority('background-image'),
+            htmlBgAttach: document.documentElement.style.getPropertyValue('background-attachment'),
+            htmlBgAttachP: document.documentElement.style.getPropertyPriority('background-attachment'),
+            htmlBgRepeat: document.documentElement.style.getPropertyValue('background-repeat'),
+            htmlBgRepeatP: document.documentElement.style.getPropertyPriority('background-repeat'),
+            htmlBgSize: document.documentElement.style.getPropertyValue('background-size'),
+            htmlBgSizeP: document.documentElement.style.getPropertyPriority('background-size'),
+        };
+
+        document.body.style.setProperty('background-color', '#0b0b0b', 'important');
+        document.body.style.setProperty('background-image', bgImage, 'important');
+        document.body.style.setProperty('background-attachment', 'fixed', 'important');
+        document.body.style.setProperty('background-repeat', 'no-repeat', 'important');
+        document.body.style.setProperty('background-size', 'cover', 'important');
+
+        document.documentElement.style.setProperty('background-color', '#0b0b0b', 'important');
+        document.documentElement.style.setProperty('background-image', bgImage, 'important');
+        document.documentElement.style.setProperty('background-attachment', 'fixed', 'important');
+        document.documentElement.style.setProperty('background-repeat', 'no-repeat', 'important');
+        document.documentElement.style.setProperty('background-size', 'cover', 'important');
+
+        return () => {
+            document.body.style.setProperty('background-color', original.bodyBgColor, original.bodyBgColorP || '');
+            document.body.style.setProperty('background-image', original.bodyBgImage, original.bodyBgImageP || '');
+            document.body.style.setProperty('background-attachment', original.bodyBgAttach, original.bodyBgAttachP || '');
+            document.body.style.setProperty('background-repeat', original.bodyBgRepeat, original.bodyBgRepeatP || '');
+            document.body.style.setProperty('background-size', original.bodyBgSize, original.bodyBgSizeP || '');
+
+            document.documentElement.style.setProperty('background-color', original.htmlBgColor, original.htmlBgColorP || '');
+            document.documentElement.style.setProperty('background-image', original.htmlBgImage, original.htmlBgImageP || '');
+            document.documentElement.style.setProperty('background-attachment', original.htmlBgAttach, original.htmlBgAttachP || '');
+            document.documentElement.style.setProperty('background-repeat', original.htmlBgRepeat, original.htmlBgRepeatP || '');
+            document.documentElement.style.setProperty('background-size', original.htmlBgSize, original.htmlBgSizeP || '');
+        };
+    }, []);
+
     const images = [
         "/projects/industrial_design/project2/1.jpg",
         "/projects/industrial_design/project2/2.jpg",
@@ -287,11 +343,11 @@ export default function Project1() {
     };
 
     return (
-        <div>
+        <div className={styles.pageContainer}>
             {/* Top Section */}
             <header className={styles.header}>
                 <Link href="/">
-                    <Image src="/image/logo/headlogo.png" alt="DANIEL DESIGN" className={styles.title} width={160} height={40} />
+                    <Image src="/image/logo/LogoWhite.png" alt="DANIEL DESIGN" className={styles.title} width={160} height={40} />
                 </Link>
 
                 <nav>
@@ -398,7 +454,7 @@ export default function Project1() {
             <div >
             <Link href="/">
                 <Image
-                    src="/image/logo/headlogo.png"
+                    src="/image/logo/LogoWhite.png"
                     alt="DANIEL DESIGN"
                     className={styles.comeBackTitle}
                     width={160}

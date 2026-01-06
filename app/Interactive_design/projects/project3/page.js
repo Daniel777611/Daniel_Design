@@ -21,6 +21,36 @@ export default function Project3() {
     const [showLeftImageNav, setShowLeftImageNav] = useState(false);
     const [showRightImageNav, setShowRightImageNav] = useState(false);
 
+    // 页面纯色背景（覆盖 globals.css 里的白底 `!important`）
+    useEffect(() => {
+        // 纯色背景（hex）
+        const PAGE_BG = '#050a08';
+
+        const original = {
+            bodyBgColor: document.body.style.getPropertyValue('background-color'),
+            bodyBgColorP: document.body.style.getPropertyPriority('background-color'),
+            bodyBgImage: document.body.style.getPropertyValue('background-image'),
+            bodyBgImageP: document.body.style.getPropertyPriority('background-image'),
+            htmlBgColor: document.documentElement.style.getPropertyValue('background-color'),
+            htmlBgColorP: document.documentElement.style.getPropertyPriority('background-color'),
+            htmlBgImage: document.documentElement.style.getPropertyValue('background-image'),
+            htmlBgImageP: document.documentElement.style.getPropertyPriority('background-image'),
+        };
+
+        // 纯色：清掉可能存在的 background-image，只保留背景色
+        document.body.style.setProperty('background-image', 'none', 'important');
+        document.body.style.setProperty('background-color', PAGE_BG, 'important');
+        document.documentElement.style.setProperty('background-image', 'none', 'important');
+        document.documentElement.style.setProperty('background-color', PAGE_BG, 'important');
+
+        return () => {
+            document.body.style.setProperty('background-image', original.bodyBgImage, original.bodyBgImageP || '');
+            document.body.style.setProperty('background-color', original.bodyBgColor, original.bodyBgColorP || '');
+            document.documentElement.style.setProperty('background-image', original.htmlBgImage, original.htmlBgImageP || '');
+            document.documentElement.style.setProperty('background-color', original.htmlBgColor, original.htmlBgColorP || '');
+        };
+    }, []);
+
     const images = [
         "/projects/interactive_design/project3/1.jpg",
         "/projects/interactive_design/project3/2.jpg",
@@ -279,11 +309,11 @@ export default function Project3() {
     }, [currentImageIndex]);
 
     return (
-        <div>
+        <div className={styles.pageContainer}>
             {/* Top Section */}
             <header className={styles.header}>
                 <Link href="/">
-                    <Image src="/image/logo/headlogo.png" alt="DANIEL DESIGN" className={styles.title} width={160} height={40} />
+                    <Image src="/image/logo/LogoWhite.png" alt="DANIEL DESIGN" className={styles.title} width={160} height={40} />
                 </Link>
 
                 <nav>
@@ -442,7 +472,7 @@ export default function Project3() {
             <div >
             <Link href="/">
                 <Image
-                    src="/image/logo/headlogo.png"
+                    src="/image/logo/LogoWhite.png"
                     alt="DANIEL DESIGN"
                     className={styles.comeBackTitle}
                     width={160}

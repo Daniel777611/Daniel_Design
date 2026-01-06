@@ -35,8 +35,26 @@ export default function Project1() {
     const [showLeftImageNav, setShowLeftImageNav] = useState(false);
     const [showRightImageNav, setShowRightImageNav] = useState(false);
 
+    // 设置页面背景颜色
+    useEffect(() => {
+        // 注意：全局样式里对 body/html 写了 `background-color: #ffffff !important`
+        // 所以这里必须用 setProperty(..., 'important') 才能覆盖（且只影响这一页）
+        const originalBodyBg = document.body.style.getPropertyValue('background-color');
+        const originalBodyPriority = document.body.style.getPropertyPriority('background-color');
+        const originalHtmlBg = document.documentElement.style.getPropertyValue('background-color');
+        const originalHtmlPriority = document.documentElement.style.getPropertyPriority('background-color');
+
+        document.body.style.setProperty('background-color', '#1f1f1f', 'important');
+        document.documentElement.style.setProperty('background-color', '#1f1f1f', 'important');
+
+        return () => {
+            document.body.style.setProperty('background-color', originalBodyBg, originalBodyPriority || '');
+            document.documentElement.style.setProperty('background-color', originalHtmlBg, originalHtmlPriority || '');
+        };
+    }, []);
+
     const images = [
-        "/projects/interactive_design/project1/1.jpg",
+        
         "/projects/interactive_design/project1/2.jpg",
         "/projects/interactive_design/project1/3.jpg",
         "/projects/interactive_design/project1/4.jpg",
@@ -622,11 +640,11 @@ export default function Project1() {
     }, [isDragging, isFullscreen, currentImageIndex]);
 
     return (
-        <div>
+        <div className={styles.pageContainer}>
             {/* Top Section */}
             <header className={styles.header}>
                 <Link href="/">
-                    <Image src="/image/logo/headlogo.png" alt="DANIEL DESIGN" className={styles.title} width={160} height={40} />
+                    <Image src="/image/logo/LogoWhite.png" alt="DANIEL DESIGN" className={styles.title} width={160} height={40} />
                 </Link>
 
                 <nav>
@@ -858,7 +876,7 @@ export default function Project1() {
             <div >
             <Link href="/">
                 <Image
-                    src="/image/logo/headlogo.png"
+                    src="/image/logo/LogoWhite.png"
                     alt="DANIEL DESIGN"
                     className={styles.comeBackTitle}
                     width={160}
