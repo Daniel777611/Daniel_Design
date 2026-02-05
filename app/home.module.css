@@ -260,15 +260,26 @@
     left: 0;
     width: 100%;
     height: 30%;
-    background: rgba(255, 255, 255, 0.9); 
+    /* Frosted glass */
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(18px) saturate(180%);
+    -webkit-backdrop-filter: blur(18px) saturate(180%);
+    border-top: 1px solid rgba(255, 255, 255, 0.7);
+    box-shadow: 0 -12px 28px rgba(0, 0, 0, 0.12);
     display: flex;
     align-items: center;
     justify-content: center;
     transition: opacity 0.3s ease;
 }
 
+.overlayIndustrial {
+    /* Industrial Design 标题底块：不透明度 90% */
+    background: rgba(255, 255, 255, 0.95);
+    border-top: 1px solid rgba(255, 255, 255, 0.9);
+}
+
 .overlayText {
-    color: rgb(70, 70, 70);
+    color: #1f1f1f;
     font-size: 20px;
     font-weight: 600;
     font-family: 'Noto Sans';

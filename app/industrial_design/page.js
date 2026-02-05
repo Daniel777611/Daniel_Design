@@ -2,78 +2,11 @@
 
 import Link from 'next/link';
 import styles from './industrial_design.module.css';
-import { useRef } from 'react';
 import Image from 'next/image';
 
 
 
 export default function HomePage() {
-    const videoRef = useRef(null); // Use React ref to control the video element
-
-    // Handle Play Full Screen
-    function playFullScreen() {
-        const video = videoRef.current;
-
-        if (video) {
-           
-           video.currentTime = 0;
-
-            // Unmute the video
-            video.muted = false;
-
-            // Request full-screen mode
-            if (video.requestFullscreen) {
-                video.requestFullscreen();
-            } else if (video.webkitRequestFullscreen) {
-                video.webkitRequestFullscreen(); // Safari
-            } else if (video.msRequestFullscreen) {
-                video.msRequestFullscreen(); // IE/Edge
-            }
-
-            // Play the video
-            video.play();
-
-            // Listen for exiting full-screen to mute the video again
-            document.addEventListener('fullscreenchange', handleExitFullScreen);
-            document.addEventListener('webkitfullscreenchange', handleExitFullScreen);
-            document.addEventListener('msfullscreenchange', handleExitFullScreen);
-        }
-    }
-
-    // Handle Exit Full Screen
-    function handleExitFullScreen() {
-        const video = videoRef.current;
-
-        // Check if full-screen mode has exited
-        if (!document.fullscreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement) {
-            // Mute the video when exiting full-screen
-            if (video) {
-                video.muted = true;
-            }
-
-            // Remove the event listeners
-            document.removeEventListener('fullscreenchange', handleExitFullScreen);
-            document.removeEventListener('webkitfullscreenchange', handleExitFullScreen);
-            document.removeEventListener('msfullscreenchange', handleExitFullScreen);
-        }
-    }
-
-    // Handle Video End
-    function handleVideoEnd() {
-        const video = videoRef.current;
-
-        // Exit full-screen mode when the video ends
-        if (document.fullscreenElement) {
-            document.exitFullscreen();
-        }
-
-        // Mute the video and restart playback
-        if (video) {
-            video.muted = true;
-            video.play();
-        }
-    }
-
     return (
         <div>
             {/* Top Section */}
@@ -88,31 +21,6 @@ export default function HomePage() {
                     </ul>
                 </nav>
             </header>
-
-            {/* Video Section */}
-            <section className={styles.videoSection}>
-                <video
-                    ref={videoRef}
-                    id="portfolioVideo"
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                  
-                    className={styles.video}
-                    onEnded={handleVideoEnd}
-                   
-                >
-                    <source src="https://danieldesignvideo.org/videos/Daniel_Design_Video.mp4" type="video/mp4" />
-                    Your browser does not support the video tag.
-                </video>
-                <button
-                 className={styles.fullscreenButton}
-                 onClick={playFullScreen}
-                >
-                 <Image src="/icon/videoPlay2.png" alt="Play Video" className={styles.playIcon} width={1000} height={1000} />
-                 </button>
-            </section>
 
             {/* BestProject Section */}
             <section id="Best-project" className={styles.bestProjectSection}>

@@ -144,7 +144,7 @@ export default function HomePage() {
 
                             <Link href="/Interactive_design">
                                 <div className={styles.galleryItem}>
-                                    <Image src="/projects/interactive_design/cover/1.png" alt="interactiveDesignCover" className={styles.galleryImage} width={800} height={600} />
+                                    <Image src="/projects/interactive_design/cover/1.jpg" alt="interactiveDesignCover" className={styles.galleryImage} width={800} height={600} />
                                     <div className={styles.overlay}>
                                     <span className={styles.overlayText}>Interactive Design</span>
                                     </div>
@@ -154,7 +154,7 @@ export default function HomePage() {
                             <Link href="/industrial_design">
                                 <div className={styles.galleryItem}>
                                     <Image src="/projects/industrial_design/cover/1.jpg" alt="industrialDesignCover" className={styles.galleryImage} width={800} height={600} />
-                                    <div className={styles.overlay}>
+                                    <div className={`${styles.overlay} ${styles.overlayIndustrial}`}>
                                     <span className={styles.overlayText}>Industrial Design</span>
                                     </div>
                                 </div>

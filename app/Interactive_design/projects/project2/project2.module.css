@@ -78,50 +78,291 @@
 
 
 
-/* Video Section */
-.videoSection {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-    background: rgba(255, 255, 255); 
+/* Video Player (copied from `ux_design/projects/project1`) */
+.processVideoSection {
+  width: 100%;
+  background-color: white;
+  padding: 60px 0;
+  text-align: center;
+  opacity: 1 !important;
+  transform: none !important;
+  filter: blur(0px) !important;
+  transition: none !important;
 }
 
-.video {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100vw;
-    height: 100vh;
-    object-fit: cover;
+.videoWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  position: relative;
+  gap: 0;
 }
 
-.fullscreenButton {
-    position: absolute;
-    bottom: 50%; /* Adjust position as needed */
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100px; /* Width of the circle */
-    height: 100px; /* Height of the circle */
-    border: none; /* Thin white border for the circle */
-    background-color: transparent; /* Transparent background */
-    cursor: pointer;
-    z-index: 2;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.videoContainer {
+  position: relative;
+  width: 82%;
+  max-width: 1000px;
+  /* 目标：保留标准倒角(12px) + 不出现任何白/黑框（不设底色/描边/阴影） */
+  background-color: transparent;
+  min-height: 400px;
+  aspect-ratio: 16 / 9;
+  border: none !important;
+  outline: none !important;
+  /* 与站内同款播放器保持一致（Interactive project1 / UX project1 都是 12px） */
+  border-radius: 12px;
+  box-shadow: none;
+  overflow: hidden;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}
+
+.processVideo {
+  width: 100%;
+  height: 100%;
+  /* 为避免露出容器底色导致“边框”，让画面填满并略微溢出裁切 */
+  object-fit: cover;
+  background-color: transparent;
+  transform: scale(1.02);
+  transform-origin: center;
+  display: block;
+  pointer-events: auto;
+  cursor: pointer;
+  border: none !important;
+  outline: none !important;
+  border-radius: 0 !important;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.videoPlayButton {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80px;
+  height: 80px;
+  border: none;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: all 0.3s ease;
+}
+
+.videoPlayButton:hover {
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: none;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  transform: translate(-50%, -50%) scale(1.05);
 }
 
 .playIcon {
-    width: 100%; /* 图标宽度与按钮一致 */
-    height: 100%; /* 图标高度与按钮一致 */
-    object-fit: contain; /* 确保图标按照比例缩放 */
+  width: 0;
+  height: 0;
+  border-left: 20px solid #ffffff;
+  border-top: 12px solid transparent;
+  border-bottom: 12px solid transparent;
+  margin-left: 4px;
 }
 
-/* Hover effect for the button */
-.fullscreenButton:hover .playIcon {
-    opacity: 0.8; /* 悬停时使图标稍微变暗 */
+.videoControls {
+  position: relative;
+  width: 82%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px 0 0 0;
+  background: transparent;
+  transition: opacity 0.3s ease;
+}
+
+.controlsVisible {
+  opacity: 1;
+}
+
+.controlsHidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.fullscreenControls {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10000;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.fullscreenControls .controlButton {
+  color: #ffffff;
+}
+
+.fullscreenControls .timeDisplay {
+  color: #ffffff;
+}
+
+.fullscreenControls .progressBarContainer {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.fullscreenControls .progressBarFill {
+  background: #ffffff;
+}
+
+.fullscreenControls .progressBarThumb {
+  background: #ffffff;
+}
+
+.fullscreenControls .volumeSliderWrapper {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.fullscreenControls .volumeSliderFill {
+  background: #ffffff;
+}
+
+.progressBarContainer {
+  width: 100%;
+  height: 6px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+  cursor: pointer;
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.progressBar {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.progressBarFill {
+  height: 100%;
+  background: #242424;
+  border-radius: 3px;
+  transition: width 0.1s linear;
+}
+
+.progressBarThumb {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 14px;
+  height: 14px;
+  background: #242424;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: left 0.1s linear;
+}
+
+.controlBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.controlBarLeft {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.controlBarRight {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.controlButton {
+  background: transparent;
+  border: none;
+  color: #242424;
+  cursor: pointer;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s ease;
+}
+
+.controlButton:hover {
+  opacity: 0.7;
+}
+
+.controlIcon {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+}
+
+.timeDisplay {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #242424;
+  font-size: 14px;
+  font-family: 'Noto Sans', Arial, sans-serif;
+}
+
+.currentTime,
+.duration {
+  font-weight: 500;
+}
+
+.timeSeparator {
+  opacity: 0.7;
+}
+
+.volumeControlPanel {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.volumeSliderWrapper {
+  position: relative;
+  width: 80px;
+  height: 4px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.volumeSliderFill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: #242424;
+  border-radius: 2px;
+  pointer-events: none;
+}
+
+.volumeSlider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+  margin: 0;
 }
 
 
