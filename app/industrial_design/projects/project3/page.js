@@ -86,6 +86,7 @@ export default function Project3() {
         "/projects/industrial_design/project3/6.jpg",
         "/projects/industrial_design/project3/7.jpg",
         "/projects/industrial_design/project3/8.jpg",
+        "/projects/industrial_design/project3/9.jpg",
     ];
 
     const playFullScreen = () => {

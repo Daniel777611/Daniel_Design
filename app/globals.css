@@ -31,12 +31,11 @@ html {
   -webkit-overflow-scrolling: touch;
 }
 
-/* 
+/* 为section添加scroll snap（可选，用于更精确的居中） */
 section {
   scroll-snap-align: center;
   scroll-snap-stop: always;
 }
-*/
 
 /* 页面切换淡入淡出动画 */
 @keyframes fadeIn {
